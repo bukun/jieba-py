@@ -1,8 +1,8 @@
 import sys,time
 import sys
-sys.path.append("../")
+sys.path.append("../../")
 import jieba
-jieba.initialize()
+jieba.enable_parallel(4)
 
 url = sys.argv[1]
 content = open(url,"rb").read()
@@ -13,9 +13,7 @@ t2 = time.time()
 tm_cost = t2-t1
 
 log_f = open("1.log","wb")
-
-log_f.write(bytes("/ ".join(words),'utf-8'))
-
-print('cost',tm_cost)
+for w in words:
+	log_f.write(w.encode("utf-8"))
 print('speed' , len(content)/tm_cost, " bytes/second")
 

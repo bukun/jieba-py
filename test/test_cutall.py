@@ -4,9 +4,8 @@ sys.path.append("../")
 import jieba
 
 def cuttest(test_sent):
-	result = jieba.cut_for_search(test_sent)
+	result = jieba.cut(test_sent,cut_all=True)
 	print("/ ".join(result))
-
 
 
 if __name__ == "__main__":
