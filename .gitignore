@@ -170,3 +170,8 @@ test/tmp/*
 *.class
 
 MANIFEST
+
+xx_*
+_build
+# jieba/_data/finalseg_data/*
+# jieba/_data/posseg_data/*

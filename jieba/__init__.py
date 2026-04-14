@@ -1,28 +1,31 @@
-from __future__ import absolute_import, unicode_literals
-
-__version__ = '0.42.1'
+__version__ = '0.46.9'
 __license__ = 'MIT'
 
 import marshal
+import os
 import re
 import tempfile
 import threading
 import time
 from hashlib import md5
 from math import log
+from pathlib import Path
 
 from . import finalseg
 from ._compat import *
 
-if os.name == 'nt':
-    from shutil import move as _replace_file
-else:
-    _replace_file = os.rename
+# if os.name == 'nt':
+#     from shutil import move as _replace_file
+# else:
+#     _replace_file = os.rename
 
-_get_abs_path = lambda path: os.path.normpath(os.path.join(os.getcwd(), path))
+
+def _get_abs_path(path):
+    return os.path.normpath(os.path.join(os.getcwd(), path))
+
 
 DEFAULT_DICT = None
-DEFAULT_DICT_NAME = "dict.txt"
+DEFAULT_DICT_NAME = '_data/dict.txt'
 
 log_console = logging.StreamHandler(sys.stderr)
 default_logger = logging.getLogger(__name__)
@@ -33,25 +36,26 @@ DICT_WRITING = {}
 
 pool = None
 
-re_userdict = re.compile('^(.+?)( [0-9]+)?( [a-z]+)?$', re.U)
+re_userdict = re.compile(r'^(.+?)( [0-9]+)?( [a-z]+)?$', re.U)
 
-re_eng = re.compile('[a-zA-Z0-9]', re.U)
+re_eng = re.compile(r'[a-zA-Z0-9]', re.U)
 
 # \u4E00-\u9FD5a-zA-Z0-9+#&\._ : All non-space characters. Will be handled with re_han
 # \r\n|\s : whitespace characters. Will not be handled.
 # re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%]+)", re.U)
 # Adding "-" symbol in re_han_default
-re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)", re.U)
+# bk: 原无 `r` 标识 。 jieba/__init__.py:45: SyntaxWarning: invalid escape sequence '\.'
+#     re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)", re.U)
+re_han_default = re.compile(r'([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)', re.U)
 
-re_skip_default = re.compile("(\r\n|\s)", re.U)
+re_skip_default = re.compile(r'(\r\n|\s)', re.U)
 
 
 def setLogLevel(log_level):
     default_logger.setLevel(log_level)
 
 
-class Tokenizer(object):
-
+class Tokenizer:
     def __init__(self, dictionary=DEFAULT_DICT):
         self.lock = threading.RLock()
         if dictionary == DEFAULT_DICT:
@@ -66,7 +70,7 @@ class Tokenizer(object):
         self.cache_file = None
 
     def __repr__(self):
-        return '<Tokenizer dictionary=%r>' % self.dictionary
+        return f'<Tokenizer dictionary={self.dictionary!r}>'
 
     @staticmethod
     def gen_pfdict(f):
@@ -80,13 +84,12 @@ class Tokenizer(object):
                 freq = int(freq)
                 lfreq[word] = freq
                 ltotal += freq
-                for ch in xrange(len(word)):
-                    wfrag = word[:ch + 1]
+                for ch in range(len(word)):
+                    wfrag = word[: ch + 1]
                     if wfrag not in lfreq:
                         lfreq[wfrag] = 0
             except ValueError:
-                raise ValueError(
-                    'invalid dictionary entry in %s at Line %s: %s' % (f_name, lineno, line))
+                raise ValueError(f'invalid dictionary entry in {f_name} at Line {lineno}: {line}')
         f.close()
         return lfreq, ltotal
 
@@ -110,27 +113,25 @@ class Tokenizer(object):
             if self.initialized:
                 return
 
-            default_logger.debug("Building prefix dict from %s ..." % (abs_path or 'the default dictionary'))
+            default_logger.debug('Building prefix dict from %s ...' % (abs_path or 'the default dictionary'))
             t1 = time.time()
             if self.cache_file:
                 cache_file = self.cache_file
             # default dictionary
             elif abs_path == DEFAULT_DICT:
-                cache_file = "jieba.cache"
+                cache_file = 'jieba.cache'
             # custom dictionary
             else:
-                cache_file = "jieba.u%s.cache" % md5(
-                    abs_path.encode('utf-8', 'replace')).hexdigest()
-            cache_file = os.path.join(
-                self.tmp_dir or tempfile.gettempdir(), cache_file)
+                cache_file = 'jieba.u{}.cache'.format(md5(abs_path.encode('utf-8', 'replace')).hexdigest())
+            cache_file = os.path.join(self.tmp_dir or tempfile.gettempdir(), cache_file)
             # prevent absolute path in self.cache_file
             tmpdir = os.path.dirname(cache_file)
 
             load_from_cache_fail = True
-            if os.path.isfile(cache_file) and (abs_path == DEFAULT_DICT or
-                                               os.path.getmtime(cache_file) > os.path.getmtime(abs_path)):
-                default_logger.debug(
-                    "Loading model from cache %s" % cache_file)
+            if os.path.isfile(cache_file) and (
+                abs_path == DEFAULT_DICT or os.path.getmtime(cache_file) > os.path.getmtime(abs_path)
+            ):
+                default_logger.debug(f'Loading model from cache {cache_file}')
                 try:
                     with open(cache_file, 'rb') as cf:
                         self.FREQ, self.total = marshal.load(cf)
@@ -143,17 +144,23 @@ class Tokenizer(object):
                 DICT_WRITING[abs_path] = wlock
                 with wlock:
                     self.FREQ, self.total = self.gen_pfdict(self.get_dict_file())
-                    default_logger.debug(
-                        "Dumping model to file cache %s" % cache_file)
+                    default_logger.debug(f'Dumping model to file cache {cache_file}')
                     try:
+                        '''
+                        在 Jieba 初始化时，它会将词典加载到内存并生成一个缓存文件（jieba.cache）。
+                        为了安全地更新这个缓存文件，程序会先写到一个临时文件，
+                        然后再把临时文件“移动”成正式的缓存文件。
+                        '''
                         # prevent moving across different filesystems
                         fd, fpath = tempfile.mkstemp(dir=tmpdir)
                         with os.fdopen(fd, 'wb') as temp_cache_file:
-                            marshal.dump(
-                                (self.FREQ, self.total), temp_cache_file)
-                        _replace_file(fpath, cache_file)
+                            marshal.dump((self.FREQ, self.total), temp_cache_file)
+
+                        # 使用 pathlib 进行安全的文件替换
+                        # _replace_file(fpath, cache_file)
+                        Path(fpath).replace(cache_file)
                     except Exception:
-                        default_logger.exception("Dump cache file failed.")
+                        default_logger.exception('Dump cache file failed.')
 
                 try:
                     del DICT_WRITING[abs_path]
@@ -161,9 +168,8 @@ class Tokenizer(object):
                     pass
 
             self.initialized = True
-            default_logger.debug(
-                "Loading model cost %.3f seconds." % (time.time() - t1))
-            default_logger.debug("Prefix dict has been built successfully.")
+            default_logger.debug('Loading model cost %.3f seconds.' % (time.time() - t1))
+            default_logger.debug('Prefix dict has been built successfully.')
 
     def check_initialized(self):
         if not self.initialized:
@@ -173,15 +179,16 @@ class Tokenizer(object):
         N = len(sentence)
         route[N] = (0, 0)
         logtotal = log(self.total)
-        for idx in xrange(N - 1, -1, -1):
-            route[idx] = max((log(self.FREQ.get(sentence[idx:x + 1]) or 1) -
-                              logtotal + route[x + 1][0], x) for x in DAG[idx])
+        for idx in range(N - 1, -1, -1):
+            route[idx] = max(
+                (log(self.FREQ.get(sentence[idx : x + 1]) or 1) - logtotal + route[x + 1][0], x) for x in DAG[idx]
+            )
 
     def get_DAG(self, sentence):
         self.check_initialized()
         DAG = {}
         N = len(sentence)
-        for k in xrange(N):
+        for k in range(N):
             tmplist = []
             i = k
             frag = sentence[k]
@@ -189,7 +196,7 @@ class Tokenizer(object):
                 if self.FREQ[frag]:
                     tmplist.append(i)
                 i += 1
-                frag = sentence[k:i + 1]
+                frag = sentence[k : i + 1]
             if not tmplist:
                 tmplist.append(k)
             DAG[k] = tmplist
@@ -199,13 +206,13 @@ class Tokenizer(object):
         dag = self.get_DAG(sentence)
         old_j = -1
         eng_scan = 0
-        eng_buf = u''
+        eng_buf = ''
         for k, L in iteritems(dag):
             if eng_scan == 1 and not re_eng.match(sentence[k]):
                 eng_scan = 0
                 yield eng_buf
             if len(L) == 1 and k > old_j:
-                word = sentence[k:L[0] + 1]
+                word = sentence[k : L[0] + 1]
                 if re_eng.match(word):
                     if eng_scan == 0:
                         eng_scan = 1
@@ -218,7 +225,7 @@ class Tokenizer(object):
             else:
                 for j in L:
                     if j > k:
-                        yield sentence[k:j + 1]
+                        yield sentence[k : j + 1]
                         old_j = j
         if eng_scan == 1:
             yield eng_buf
@@ -286,7 +293,7 @@ class Tokenizer(object):
                 for elem in buf:
                     yield elem
 
-    def cut(self, sentence, cut_all=False, HMM=True, use_paddle=False):
+    def cut(self, sentence, cut_all=False, HMM=True):
         """
         The main function that segments an entire sentence that contains
         Chinese characters into separated words.
@@ -296,19 +303,7 @@ class Tokenizer(object):
             - cut_all: Model type. True for full pattern, False for accurate pattern.
             - HMM: Whether to use the Hidden Markov Model.
         """
-        is_paddle_installed = check_paddle_install['is_paddle_installed']
         sentence = strdecode(sentence)
-        if use_paddle and is_paddle_installed:
-            # if sentence is null, it will raise core exception in paddle.
-            if sentence is None or len(sentence) == 0:
-                return
-            import jieba.lac_small.predict as predict
-            results = predict.get_sent(sentence)
-            for sent in results:
-                if sent is None:
-                    continue
-                yield sent
-            return
         re_han = re_han_default
         re_skip = re_skip_default
         if cut_all:
@@ -322,16 +317,14 @@ class Tokenizer(object):
             if not blk:
                 continue
             if re_han.match(blk):
-                for word in cut_block(blk):
-                    yield word
+                yield from cut_block(blk)
             else:
                 tmp = re_skip.split(blk)
                 for x in tmp:
                     if re_skip.match(x):
                         yield x
                     elif not cut_all:
-                        for xx in x:
-                            yield xx
+                        yield from x
                     else:
                         yield x
 
@@ -342,13 +335,13 @@ class Tokenizer(object):
         words = self.cut(sentence, HMM=HMM)
         for w in words:
             if len(w) > 2:
-                for i in xrange(len(w) - 1):
-                    gram2 = w[i:i + 2]
+                for i in range(len(w) - 1):
+                    gram2 = w[i : i + 2]
                     if self.FREQ.get(gram2):
                         yield gram2
             if len(w) > 3:
-                for i in xrange(len(w) - 2):
-                    gram3 = w[i:i + 3]
+                for i in range(len(w) - 2):
+                    gram3 = w[i : i + 3]
                     if self.FREQ.get(gram3):
                         yield gram3
             yield w
@@ -378,7 +371,7 @@ class Tokenizer(object):
             return open(self.dictionary, 'rb')
 
     def load_userdict(self, f):
-        '''
+        """
         Load personalized dict to improve detect rate.
 
         Parameter:
@@ -391,7 +384,7 @@ class Tokenizer(object):
         word2 freq2 word_type2
         ...
         Word type may be ignored
-        '''
+        """
         self.check_initialized()
         if isinstance(f, string_types):
             f_name = f
@@ -404,7 +397,7 @@ class Tokenizer(object):
                 try:
                     line = line.decode('utf-8').lstrip('\ufeff')
                 except UnicodeDecodeError:
-                    raise ValueError('dictionary file %s must be utf-8' % f_name)
+                    raise ValueError(f'dictionary file {f_name} must be utf-8')
             if not line:
                 continue
             # match won't be None because there's at least one character
@@ -429,8 +422,8 @@ class Tokenizer(object):
         self.total += freq
         if tag:
             self.user_word_tag_tab[word] = tag
-        for ch in xrange(len(word)):
-            wfrag = word[:ch + 1]
+        for ch in range(len(word)):
+            wfrag = word[: ch + 1]
             if wfrag not in self.FREQ:
                 self.FREQ[wfrag] = 0
         if freq == 0:
@@ -473,7 +466,7 @@ class Tokenizer(object):
             self.add_word(word, freq)
         return freq
 
-    def tokenize(self, unicode_sentence, mode="default", HMM=True):
+    def tokenize(self, unicode_sentence, mode='default', HMM=True):
         """
         Tokenize a sentence and yields tuples of (word, start, end)
 
@@ -483,7 +476,7 @@ class Tokenizer(object):
             - HMM: whether to use the Hidden Markov Model.
         """
         if not isinstance(unicode_sentence, text_type):
-            raise ValueError("jieba: the input parameter should be unicode.")
+            raise ValueError('jieba: the input parameter should be unicode.')
         start = 0
         if mode == 'default':
             for w in self.cut(unicode_sentence, HMM=HMM):
@@ -494,13 +487,13 @@ class Tokenizer(object):
             for w in self.cut(unicode_sentence, HMM=HMM):
                 width = len(w)
                 if len(w) > 2:
-                    for i in xrange(len(w) - 1):
-                        gram2 = w[i:i + 2]
+                    for i in range(len(w) - 1):
+                        gram2 = w[i : i + 2]
                         if self.FREQ.get(gram2):
                             yield (gram2, start + i, start + i + 2)
                 if len(w) > 3:
-                    for i in xrange(len(w) - 2):
-                        gram3 = w[i:i + 3]
+                    for i in range(len(w) - 2):
+                        gram3 = w[i : i + 3]
                         if self.FREQ.get(gram3):
                             yield (gram3, start + i, start + i + 3)
                 yield (w, start, start + width)
@@ -510,7 +503,7 @@ class Tokenizer(object):
         with self.lock:
             abs_path = _get_abs_path(dictionary_path)
             if not os.path.isfile(abs_path):
-                raise Exception("jieba: file does not exist: " + abs_path)
+                raise Exception('jieba: file does not exist: ' + abs_path)
             self.dictionary = abs_path
             self.initialized = False
 
@@ -521,7 +514,11 @@ dt = Tokenizer()
 
 # global functions
 
-get_FREQ = lambda k, d=None: dt.FREQ.get(k, d)
+
+def get_FREQ(k, d=None):
+    return dt.FREQ.get(k, d)
+
+
 add_word = dt.add_word
 calc = dt.calc
 cut = dt.cut
@@ -572,8 +569,7 @@ def _pcut(sentence, cut_all=False, HMM=True):
     else:
         result = pool.map(_lcut_no_hmm, parts)
     for r in result:
-        for w in r:
-            yield w
+        yield from r
 
 
 def _pcut_for_search(sentence, HMM=True):
@@ -583,8 +579,7 @@ def _pcut_for_search(sentence, HMM=True):
     else:
         result = pool.map(_lcut_for_search_no_hmm, parts)
     for r in result:
-        for w in r:
-            yield w
+        yield from r
 
 
 def enable_parallel(processnum=None):
@@ -597,9 +592,9 @@ def enable_parallel(processnum=None):
     """
     global pool, dt, cut, cut_for_search
     from multiprocessing import cpu_count
+
     if os.name == 'nt':
-        raise NotImplementedError(
-            "jieba: parallel mode only supports posix system")
+        raise NotImplementedError('jieba: parallel mode only supports posix system')
     else:
         from multiprocessing import Pool
     dt.check_initialized()

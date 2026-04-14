@@ -1,13 +1,13 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-from __future__ import absolute_import, unicode_literals
 import sys
-from operator import itemgetter
 from collections import defaultdict
+from operator import itemgetter
+
 import jieba.posseg
-from .tfidf import KeywordExtractor
+
 from .._compat import *
+from .tfidf import KeywordExtractor
 
 
 class UndirectWeightedGraph:
@@ -32,7 +32,7 @@ class UndirectWeightedGraph:
 
         # this line for build stable iteration
         sorted_keys = sorted(self.graph.keys())
-        for x in xrange(10):  # 10 iters
+        for x in range(10):  # 10 iters
             for n in sorted_keys:
                 s = 0
                 for e in self.graph[n]:
@@ -55,7 +55,6 @@ class UndirectWeightedGraph:
 
 
 class TextRank(KeywordExtractor):
-
     def __init__(self):
         self.tokenizer = self.postokenizer = jieba.posseg.dt
         self.stop_words = self.STOP_WORDS.copy()
@@ -63,8 +62,7 @@ class TextRank(KeywordExtractor):
         self.span = 5
 
     def pairfilter(self, wp):
-        return (wp.flag in self.pos_filt and len(wp.word.strip()) >= 2
-                and wp.word.lower() not in self.stop_words)
+        return wp.flag in self.pos_filt and len(wp.word.strip()) >= 2 and wp.word.lower() not in self.stop_words
 
     def textrank(self, sentence, topK=20, withWeight=False, allowPOS=('ns', 'n', 'vn', 'v'), withFlag=False):
         """
@@ -84,7 +82,7 @@ class TextRank(KeywordExtractor):
         words = tuple(self.tokenizer.cut(sentence))
         for i, wp in enumerate(words):
             if self.pairfilter(wp):
-                for j in xrange(i + 1, i + self.span):
+                for j in range(i + 1, i + self.span):
                     if j >= len(words):
                         break
                     if not self.pairfilter(words[j]):

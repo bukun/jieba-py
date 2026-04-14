@@ -1,2 +1,26 @@
-graft README.md
 graft Changelog
+
+# 排除测试目录
+recursive-exclude tests *
+recursive-exclude test *
+prune tests
+prune test
+
+# 排除所有 .md 文件
+global-exclude *.md
+
+# 排除其他不需要的文件
+global-exclude .gitignore
+global-exclude .python-version
+global-exclude Makefile
+global-exclude *.sh
+global-exclude *.log
+prune dist
+prune build
+prune *.egg-info
+prune docs
+prune tmp
+prune xx_data
+prune data
+prune wrapper
+prune scripts

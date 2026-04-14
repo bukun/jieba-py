@@ -1,29 +1,63 @@
-# encoding=utf-8
-from __future__ import absolute_import
 import os
-import jieba
-import jieba.posseg
 from operator import itemgetter
 
-_get_module_path = lambda path: os.path.normpath(os.path.join(os.getcwd(),
-                                                 os.path.dirname(__file__), path))
+import jieba
+import jieba.posseg
+
+
+def _get_module_path(path):
+    norr_path = os.path.normpath(os.path.join(os.getcwd(), os.path.dirname(__file__), path))
+    assert os.path.isfile(norr_path)
+    return norr_path
+
+
 _get_abs_path = jieba._get_abs_path
 
-DEFAULT_IDF = _get_module_path("idf.txt")
+DEFAULT_IDF = _get_module_path('../_data/idf.txt')
 
 
-class KeywordExtractor(object):
-
-    STOP_WORDS = set((
-        "the", "of", "is", "and", "to", "in", "that", "we", "for", "an", "are",
-        "by", "be", "as", "on", "with", "can", "if", "from", "which", "you", "it",
-        "this", "then", "at", "have", "all", "not", "one", "has", "or", "that"
-    ))
+class KeywordExtractor:
+    STOP_WORDS = set(
+        (
+            'the',
+            'of',
+            'is',
+            'and',
+            'to',
+            'in',
+            'that',
+            'we',
+            'for',
+            'an',
+            'are',
+            'by',
+            'be',
+            'as',
+            'on',
+            'with',
+            'can',
+            'if',
+            'from',
+            'which',
+            'you',
+            'it',
+            'this',
+            'then',
+            'at',
+            'have',
+            'all',
+            'not',
+            'one',
+            'has',
+            'or',
+            'that',
+        )
+    )
 
     def set_stop_words(self, stop_words_path):
         abs_path = _get_abs_path(stop_words_path)
         if not os.path.isfile(abs_path):
-            raise Exception("jieba: file does not exist: " + abs_path)
+            raise Exception('jieba: file does not exist: ' + abs_path)
         content = open(abs_path, 'rb').read().decode('utf-8')
         for line in content.splitlines():
             self.stop_words.add(line)
@@ -32,10 +66,9 @@ class KeywordExtractor(object):
         raise NotImplementedError
 
 
-class IDFLoader(object):
-
+class IDFLoader:
     def __init__(self, idf_path=None):
-        self.path = ""
+        self.path = ''
         self.idf_freq = {}
         self.median_idf = 0.0
         if idf_path:
@@ -49,15 +82,13 @@ class IDFLoader(object):
             for line in content.splitlines():
                 word, freq = line.strip().split(' ')
                 self.idf_freq[word] = float(freq)
-            self.median_idf = sorted(
-                self.idf_freq.values())[len(self.idf_freq) // 2]
+            self.median_idf = sorted(self.idf_freq.values())[len(self.idf_freq) // 2]
 
     def get_idf(self):
         return self.idf_freq, self.median_idf
 
 
 class TFIDF(KeywordExtractor):
-
     def __init__(self, idf_path=None):
         self.tokenizer = jieba.dt
         self.postokenizer = jieba.posseg.dt
@@ -68,7 +99,7 @@ class TFIDF(KeywordExtractor):
     def set_idf_path(self, idf_path):
         new_abs_path = _get_abs_path(idf_path)
         if not os.path.isfile(new_abs_path):
-            raise Exception("jieba: file does not exist: " + new_abs_path)
+            raise Exception('jieba: file does not exist: ' + new_abs_path)
         self.idf_loader.set_new_path(new_abs_path)
         self.idf_freq, self.median_idf = self.idf_loader.get_idf()
 

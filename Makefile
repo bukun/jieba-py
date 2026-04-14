@@ -1,0 +1,19 @@
+.PHONY: build test format docs html clean
+
+build: clean
+	#rm -f dist/*
+	python -m build
+	# 或使用 PDM（如果安装了）
+	# pdm build
+html:
+	cd docs && make html
+test:
+	pytest .
+format:
+	uvx ruff format .
+	uvx ruff check --fix .
+	uvx ruff format .
+install: clean
+	python3 -m pip install .
+clean:
+	rm -rf build dist *.egg-info

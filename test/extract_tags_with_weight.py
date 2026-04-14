@@ -1,15 +1,17 @@
 import sys
+
 sys.path.append('../')
+
+from optparse import OptionParser
 
 import jieba
 import jieba.analyse
-from optparse import OptionParser
 
-USAGE = "usage:    python extract_tags_with_weight.py [file name] -k [top k] -w [with weight=1 or 0]"
+USAGE = 'usage:    python extract_tags_with_weight.py [file name] -k [top k] -w [with weight=1 or 0]'
 
 parser = OptionParser(USAGE)
-parser.add_option("-k", dest="topK")
-parser.add_option("-w", dest="withWeight")
+parser.add_option('-k', dest='topK')
+parser.add_option('-w', dest='withWeight')
 opt, args = parser.parse_args()
 
 
@@ -27,7 +29,7 @@ else:
 if opt.withWeight is None:
     withWeight = False
 else:
-    if int(opt.withWeight) is 1:
+    if int(opt.withWeight) == 1:
         withWeight = True
     else:
         withWeight = False
@@ -38,6 +40,6 @@ tags = jieba.analyse.extract_tags(content, topK=topK, withWeight=withWeight)
 
 if withWeight is True:
     for tag in tags:
-        print("tag: %s\t\t weight: %f" % (tag[0],tag[1]))
+        print(f'tag: {tag[0]}\t\t weight: {tag[1]:f}')
 else:
-    print(",".join(tags))
+    print(','.join(tags))
