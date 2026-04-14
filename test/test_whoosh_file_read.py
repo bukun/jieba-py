@@ -1,7 +1,8 @@
 # -*- coding: UTF-8 -*-
 import os
 import sys
-import sys ; sys.path.append('.')
+
+sys.path.append('.')
 
 from whoosh.fields import *
 from whoosh.index import open_dir

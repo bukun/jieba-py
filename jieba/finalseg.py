@@ -1,12 +1,10 @@
-import re
-
+from jieba._data.finalseg_data.prob_emit import P as emit_P
 from jieba._data.finalseg_data.prob_start import P as start_P
 from jieba._data.finalseg_data.prob_trans import P as trans_P
-from jieba._data.finalseg_data.prob_emit import P as emit_P
 
-
-# import pickle
 from ._compat import *
+from .utils import re_han_final as re_han
+from .utils import re_skip_final as re_skip
 
 MIN_FLOAT = -3.14e100
 
@@ -67,10 +65,6 @@ def __cut(sentence):
             nexti = i + 1
     if nexti < len(sentence):
         yield sentence[nexti:]
-
-
-re_han = re.compile(r'([\u4E00-\u9FD5]+)')
-re_skip = re.compile(r'([a-zA-Z0-9]+(?:\.\d+)?%?)')
 
 
 def add_force_split(word):

@@ -13,6 +13,8 @@ from pathlib import Path
 
 from . import finalseg
 from ._compat import *
+from .utils import re_eng_default as re_eng
+from .utils import re_han_default, re_skip_default, re_userdict
 
 # if os.name == 'nt':
 #     from shutil import move as _replace_file
@@ -35,20 +37,6 @@ default_logger.addHandler(log_console)
 DICT_WRITING = {}
 
 pool = None
-
-re_userdict = re.compile(r'^(.+?)( [0-9]+)?( [a-z]+)?$', re.U)
-
-re_eng = re.compile(r'[a-zA-Z0-9]', re.U)
-
-# \u4E00-\u9FD5a-zA-Z0-9+#&\._ : All non-space characters. Will be handled with re_han
-# \r\n|\s : whitespace characters. Will not be handled.
-# re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%]+)", re.U)
-# Adding "-" symbol in re_han_default
-# bk: 原无 `r` 标识 。 jieba/__init__.py:45: SyntaxWarning: invalid escape sequence '\.'
-#     re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)", re.U)
-re_han_default = re.compile(r'([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)', re.U)
-
-re_skip_default = re.compile(r'(\r\n|\s)', re.U)
 
 
 def setLogLevel(log_level):

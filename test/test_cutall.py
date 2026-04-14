@@ -2,7 +2,6 @@
 进行了修改。添加断言
 """
 
-import sys
 
 
 import jieba

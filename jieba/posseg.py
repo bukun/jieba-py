@@ -1,6 +1,3 @@
-# import pickle
-import re
-
 import jieba
 from jieba._data.posseg_data.char_state_tab import P as char_state_tab_P
 from jieba._data.posseg_data.prob_emit import P as emit_P
@@ -8,6 +5,21 @@ from jieba._data.posseg_data.prob_start import P as start_P
 from jieba._data.posseg_data.prob_trans import P as trans_P
 
 from ._compat import *
+from .utils import (
+    re_eng1_pos as re_eng1,
+)
+from .utils import (
+    re_eng_pos as re_eng,
+)
+from .utils import (
+    re_han_detail,
+    re_han_internal,
+    re_skip_detail,
+    re_skip_internal,
+)
+from .utils import (
+    re_num_pos as re_num,
+)
 
 MIN_FLOAT = -3.14e100
 MIN_INF = float('-inf')
@@ -62,23 +74,6 @@ def viterbi(obs, states, start_p, trans_p, emit_p):
 # PROB_TRANS_P = "prob_trans.p"
 # PROB_EMIT_P = "prob_emit.p"
 # CHAR_STATE_TAB_P = "char_state_tab.p"
-
-"""
-Lingma: 推荐使用方案，将范围扩展到 \u4e00-\u9fff，理由：
-- 覆盖更完整的汉字范围
-- 无需额外依赖
-- 性能相同
-- 向后兼容（只是扩大了匹配范围）
-"""
-re_han_detail = re.compile(r'([\u4E00-\u9FD5]+)')
-re_skip_detail = re.compile(r'([\.0-9]+|[a-zA-Z0-9]+)')
-re_han_internal = re.compile(r'([\u4E00-\u9FD5a-zA-Z0-9+#&\._]+)')
-re_skip_internal = re.compile(r'(\r\n|\s)')
-
-re_eng = re.compile(r'[a-zA-Z0-9]+')
-re_num = re.compile(r'[\.0-9]+')
-
-re_eng1 = re.compile(r'^[a-zA-Z0-9]$', re.U)
 
 
 # def load_model():

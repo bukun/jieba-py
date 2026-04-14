@@ -1,5 +1,6 @@
-import jieba
 from pathlib import Path
+
+import jieba
 
 
 def cuttest(test_sent):
