@@ -1,4 +1,7 @@
-"""Jieba command line interface."""
+"""
+Jieba command line interface.
+支持通过 `python3 -m jieba` 运行
+"""
 
 import sys
 from argparse import ArgumentParser

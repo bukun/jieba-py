@@ -12,7 +12,6 @@ test:
 docstrfmt:
 	docstrfmt -l 80 docs/*.rst
 format:
-	uvx ruff format .
 	uvx ruff check --fix .
 	uvx ruff format .
 install: clean
