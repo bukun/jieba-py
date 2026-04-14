@@ -1,44 +1,44 @@
-
-
-================
-jieba-py介绍
-================
+############
+ jieba-py介绍
+############
 
 .. note::
-   “结巴”中文分词：做最好的 Python 中文分词组件
 
-   "Jieba" (Chinese for "to stutter") Chinese text segmentation:
-   built to be the best Python Chinese word segmentation module.
+    “结巴”中文分词：做最好的 Python 中文分词组件
 
+    "Jieba" (Chinese for "to stutter") Chinese text segmentation: built to be
+    the best Python Chinese word segmentation module.
 
-特点
-========
+****
+ 特点
+****
 
-* 支持三种分词模式：
-    * 精确模式，试图将句子最精确地切开，适合文本分析；
-    * 全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；
-    * 搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。
-* 支持繁体分词
-* 支持自定义词典
-* MIT 授权协议
+- 支持三种分词模式：
+      - 精确模式，试图将句子最精确地切开，适合文本分析；
+      - 全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；
+      - 搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。
+- 支持繁体分词
+- 支持自定义词典
+- MIT 授权协议
 
-安装说明
-======================
+******
+ 安装说明
+******
 
 模块支持 Python 3.10以上版本．
 
-* 全自动安装：`easy_install jieba` 或者 `pip install jieba` / `pip3 install jieba`
-* 半自动安装：先下载 http://pypi.python.org/pypi/jieba/ ，解压后运行 `python setup.py install`
-* 手动安装：将 jieba 目录放置于当前目录或者 site-packages 目录
-* 通过 `import jieba` 来引用
+- 全自动安装：\ `easy_install jieba` 或者 `pip install jieba` / `pip3 install jieba`
+- 半自动安装：先下载 http://pypi.python.org/pypi/jieba/ ，解压后运行 `python setup.py install`
+- 手动安装：将 jieba 目录放置于当前目录或者 site-packages 目录
+- 通过 `import jieba` 来引用
 
-算法
-========
+****
+ 算法
+****
 
-* 基于前缀词典实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图 (DAG)
-* 采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合
-* 对于未登录词，采用了基于汉字成词能力的 HMM 模型，使用了 Viterbi 算法
-
+- 基于前缀词典实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图 (DAG)
+- 采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合
+- 对于未登录词，采用了基于汉字成词能力的 HMM 模型，使用了 Viterbi 算法
 
 这个程序使用的是传统的HMM（隐马尔可夫模型）+ BMES标注方法：
 
@@ -54,4 +54,3 @@ jieba-py介绍
 - 独立性假设过强：HMM假设当前状态只依赖前一个状态，无法捕捉长距离依赖
 - 特征稀疏：只能利用局部信息，无法利用上下文语义
 - 准确率有限：通常在85-90%左右，难以突破瓶颈
-

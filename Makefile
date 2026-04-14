@@ -9,6 +9,8 @@ html:
 	cd docs && make html
 test:
 	pytest .
+docstrfmt:
+	docstrfmt -l 80 docs/*.rst
 format:
 	uvx ruff format .
 	uvx ruff check --fix .
@@ -17,3 +19,5 @@ install: clean
 	python3 -m pip install .
 clean:
 	rm -rf build dist *.egg-info
+sync:
+	uv sync --no-install-project

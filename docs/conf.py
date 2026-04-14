@@ -56,3 +56,5 @@ html_css_files = [
 # 不复制源文件到输出目录
 html_copy_source = False
 html_show_sourcelink = False
+
+suppress_warnings = ['misc.highlighting_failure', 'docutils.title_overline']
