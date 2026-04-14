@@ -26,8 +26,8 @@
     :numbered: 2
 
     01-intro.rst
-    02_usage.rst
+    02-usage.rst
     04-data.rst
     07-removed.rst
-    08_append.rst
-    09_old.rst
+    08-append.rst
+    09-old.rst
