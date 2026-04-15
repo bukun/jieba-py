@@ -16,7 +16,7 @@ ix = create_in('tmp', schema)
 writer = ix.writer()
 
 # file_name = sys.argv[1]
-file_name = 'test/test.txt'
+file_name = 'data/for-test/test.txt'
 
 with open(file_name, 'rb') as inf:
     i = 0

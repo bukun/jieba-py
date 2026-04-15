@@ -1,10 +1,8 @@
-import sys
 from pathlib import Path
 
-sys.path.append('../')
 import jieba
 
-jieba.load_userdict(str(Path(__file__).parent / 'userdict.txt'))
+jieba.load_userdict(str(Path(__file__).parent.parent / 'data/for-test/userdict.txt'))
 import jieba.posseg as pseg
 
 jieba.add_word('石墨烯')

@@ -6,7 +6,7 @@ jieba.initialize()
 import jieba.posseg
 
 # url = sys.argv[1]
-url = 'test/test.txt'
+url = 'data/for-test/test.txt'
 content = open(url, 'rb').read()
 t1 = time.time()
 words = list(jieba.posseg.cut(content))

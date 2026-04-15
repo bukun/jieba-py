@@ -6,7 +6,7 @@ import jieba
 jieba.enable_parallel()
 
 # url = sys.argv[1]
-url = 'test/test.txt'
+url = 'data/for-test/test.txt'
 content = open(url, 'rb').read()
 t1 = time.time()
 words = '/ '.join(jieba.cut(content))

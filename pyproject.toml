@@ -31,7 +31,7 @@ dependencies = [
 
 
 [project.urls]
-Homepage = "https://gitee.com/bukun/jieba-py"
+Homepage = "https://github.com/bukun/jieba-py"
 Documentation = "https://gitee.com/bukun/jieba-py/blob/master/README.md"
 
 [tool.setuptools.packages.find]
@@ -140,16 +140,10 @@ omit = [
     "**/scripts/*",
     "**/_run_*.py",
     "**/_script_*.py",
-    "**/migrations/*",
     "**/xx_*.py",
-    "**/django_fsm/*",
-    "fastools/*",
-    "**/spiders/*",
-    "crawl_tiger/_plugins/**/*",
-    "**/tests/*", # 排除 tests 目录下所有文件
+    "**/test/*", # 排除 test 目录下所有文件
     "**/test*.py", # 排除以 test_ 开头的测试文件
     "__init__.py", # 可选：排除空的 __init__.py
-    "manage.py", # 可选：Django 项目排除入口文件
 ]
 
 [tool.coverage.report]

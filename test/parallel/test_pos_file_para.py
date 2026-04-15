@@ -8,7 +8,7 @@ import jieba.posseg as pseg
 jieba.enable_parallel(4)
 
 # url = sys.argv[1]
-url = 'test/test.txt'
+url = 'data/for-test/test.txt'
 content = open(url, 'rb').read()
 t1 = time.time()
 words = list(pseg.cut(content))
