@@ -1,4 +1,3 @@
-from pathlib import Path
 
 import jieba
 
@@ -23,6 +22,6 @@ def testcase():
 
 if __name__ == '__main__':
     testcase()
-    jieba.set_dictionary(Path(__file__).parent / 'foobar.txt')
+    jieba.set_dictionary('data/for-test/foobar.txt')
     print('================================')
     testcase()

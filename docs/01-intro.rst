@@ -25,12 +25,15 @@
  安装说明
 ******
 
-模块支持 Python 3.10以上版本．
+模块支持 Python 3.10以上版本． 安装方式： ``python3 -m pip install jieba``
 
-- 全自动安装：\ `easy_install jieba` 或者 `pip install jieba` / `pip3 install jieba`
-- 半自动安装：先下载 http://pypi.python.org/pypi/jieba/ ，解压后运行 `python setup.py install`
-- 手动安装：将 jieba 目录放置于当前目录或者 site-packages 目录
-- 通过 `import jieba` 来引用
+安装后， 通过 ``import jieba`` 来引用
+
+.. code-block:: python
+
+    import jieba
+
+    print(jieba.__version__)
 
 ****
  算法
@@ -38,19 +41,19 @@
 
 - 基于前缀词典实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图 (DAG)
 - 采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合
-- 对于未登录词，采用了基于汉字成词能力的 HMM 模型，使用了 Viterbi 算法
+- 对于未登录词，采用了基于汉字成词能力的 ``HMM`` 模型，使用了 ``Viterbi`` 算法
 
 这个程序使用的是传统的HMM（隐马尔可夫模型）+ BMES标注方法：
 
 优点：
 
-- 经典可靠：HMM是分词领域的经典算法，jieba的核心就是基于此
+- 经典可靠：\ ``HMM`` 是分词领域的经典算法，\ ``jieba`` 的核心就是基于此
 - 训练速度快：只需要统计计数，计算简单
 - 资源占用少：模型文件小，推理快速
 - 无监督友好：适合未登录词识别
 
 缺点：
 
-- 独立性假设过强：HMM假设当前状态只依赖前一个状态，无法捕捉长距离依赖
+- 独立性假设过强：\ ``HMM`` 假设当前状态只依赖前一个状态，无法捕捉长距离依赖
 - 特征稀疏：只能利用局部信息，无法利用上下文语义
 - 准确率有限：通常在85-90%左右，难以突破瓶颈

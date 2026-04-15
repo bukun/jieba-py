@@ -25,7 +25,7 @@ project_version = pyproject_data['project']['version']
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'jieba-py'
+project = 'jieba-py[Python结巴分词]'
 copyright = '2026, bukun'
 author = 'bukun'
 release = project_version
@@ -34,7 +34,7 @@ version = project_version
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [  'sphinxcontrib.programoutput',]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -58,3 +58,8 @@ html_copy_source = False
 html_show_sourcelink = False
 
 suppress_warnings = ['misc.highlighting_failure', 'docutils.title_overline']
+suppress_warnings = [
+    'ref.ref',           # 可选：忽略引用警告
+    'toc.tree',          # 可选：忽略目录警告
+    'docs.title',        # 忽略标题下划线/上划线太短警告
+]

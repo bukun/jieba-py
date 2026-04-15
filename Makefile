@@ -17,6 +17,7 @@ format:
 install: clean
 	python3 -m pip install .
 clean:
-	rm -rf build dist *.egg-info
+	rm -rf build dist *.egg-info _build/html
+
 sync:
 	uv sync --no-install-project

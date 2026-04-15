@@ -2,7 +2,6 @@ import sys
 import types
 import unittest
 from importlib import reload
-from pathlib import Path
 
 import jieba
 
@@ -125,7 +124,7 @@ class JiebaTestCase(unittest.TestCase):
 
     def testSetDictionary(self):
 
-        jieba.set_dictionary(str(Path(__file__).parent / 'foobar.txt'))
+        jieba.set_dictionary( 'data/for-test/foobar.txt')
         for content in test_contents:
             result = jieba.cut(content)
             assert isinstance(result, types.GeneratorType), 'Test SetDictionary Generator error'

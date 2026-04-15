@@ -80,6 +80,8 @@ dev = [
     "build>=1.4.3",
     "pytest>=9.0.3",
     "scikit-learn>=1.7.2",
+    "sphinxcontrib-programoutput>=0.19",
+    "docstrfmt>=2.0.2",
 ]
 
 

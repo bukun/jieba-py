@@ -1,3 +1,6 @@
+'''
+测试用到的文件，在： ./data/for-test
+'''
 import sys
 from pathlib import Path
 

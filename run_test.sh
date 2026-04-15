@@ -1,10 +1,10 @@
 set -e
 python3 test/demo.py
-python3 test/extract_tags_idfpath.py test/test.txt
-python3 test/extract_tags.py test/test.txt
-python3 test/extract_tags_stop_words.py test/test.txt
-python3 test/extract_tags_with_weight.py test/test.txt
-python3 test/extract_topic.py test
+python3 test/extract_tags_idfpath.py data/for-test/test.txt
+python3 test/extract_tags.py data/for-test/test.txt
+python3 test/extract_tags_stop_words.py data/for-test/test.txt
+python3 test/extract_tags_with_weight.py data/for-test/test.txt
+python3 test/extract_topic.py data/for-test
 python3 test/jieba_test.py
 python3 test/test_base.py
 python3 test/test_bug.py
