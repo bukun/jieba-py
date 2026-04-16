@@ -70,24 +70,7 @@ def viterbi(obs, states, start_p, trans_p, emit_p):
     return (prob, route)
 
 
-# PROB_START_P = "prob_start.p"
-# PROB_TRANS_P = "prob_trans.p"
-# PROB_EMIT_P = "prob_emit.p"
-# CHAR_STATE_TAB_P = "char_state_tab.p"
 
-
-# def load_model():
-#     # For Jython
-#     start_p = pickle.load(get_module_res("posseg", PROB_START_P))
-#     trans_p = pickle.load(get_module_res("posseg", PROB_TRANS_P))
-#     emit_p = pickle.load(get_module_res("posseg", PROB_EMIT_P))
-#     state = pickle.load(get_module_res("posseg", CHAR_STATE_TAB_P))
-#     return state, start_p, trans_p, emit_p
-
-
-# if sys.platform.startswith("java"):
-#     char_state_tab_P, start_P, trans_P, emit_P = load_model()
-# else:
 
 
 class pair:
@@ -102,9 +85,7 @@ class pair:
         return f'pair({self.word!r}, {self.flag!r})'
 
     def __str__(self):
-        # if PY2:
-        #     return self.__unicode__().encode(default_encoding)
-        # else:
+
         return self.__unicode__()
 
     def __iter__(self):

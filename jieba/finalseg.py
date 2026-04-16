@@ -8,23 +8,11 @@ from .utils import re_skip_final as re_skip
 
 MIN_FLOAT = -3.14e100
 
-# PROB_START_P = "prob_start.p"
-# PROB_TRANS_P = "prob_trans.p"
-# PROB_EMIT_P = "prob_emit.p"
-
 
 PrevStatus = {'B': 'ES', 'M': 'MB', 'S': 'SE', 'E': 'BM'}
 
 Force_Split_Words = set([])
-# def load_model():
-#     start_p = pickle.load(get_module_res("finalseg", PROB_START_P))
-#     trans_p = pickle.load(get_module_res("finalseg", PROB_TRANS_P))
-#     emit_p = pickle.load(get_module_res("finalseg", PROB_EMIT_P))
-#     return start_p, trans_p, emit_p
 
-# if sys.platform.startswith("java"):
-#     start_P, trans_P, emit_P = load_model()
-# else:
 
 
 def viterbi(obs, states, start_p, trans_p, emit_p):

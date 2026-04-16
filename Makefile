@@ -1,6 +1,6 @@
 .PHONY: build test format docs html clean
 
-build: clean
+build: clean test
 	#rm -f dist/*
 	python -m build
 	# 或使用 PDM（如果安装了）

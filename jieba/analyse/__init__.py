@@ -1,11 +1,6 @@
 from .textrank import TextRank
 from .tfidf import TFIDF
 
-# try:
-#     # 安装whoosh的情况下
-#     from .analyzer import ChineseAnalyzer
-# except ImportError:
-#     pass
 
 default_tfidf = TFIDF()
 default_textrank = TextRank()

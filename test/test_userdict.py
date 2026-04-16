@@ -2,7 +2,7 @@ from pathlib import Path
 
 import jieba
 
-jieba.load_userdict(str(Path(__file__).parent.parent / 'data/for-test/userdict.txt'))
+jieba.load_userdict(str(Path(__file__).parent.parent / 'docs/demos/userdict.txt'))
 import jieba.posseg as pseg
 
 jieba.add_word('石墨烯')

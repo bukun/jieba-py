@@ -3,7 +3,6 @@ __license__ = 'MIT'
 
 import marshal
 import os
-import re
 import tempfile
 import threading
 import time
@@ -15,11 +14,6 @@ from . import finalseg
 from ._compat import *
 from .utils import re_eng_default as re_eng
 from .utils import re_han_default, re_skip_default, re_userdict
-
-# if os.name == 'nt':
-#     from shutil import move as _replace_file
-# else:
-#     _replace_file = os.rename
 
 
 def _get_abs_path(path):
