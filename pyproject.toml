@@ -1,6 +1,6 @@
 [project]
 name = "jieba-py"
-version = "0.46.9"
+version = "0.46.10"
 description = "Chinese Words Segmentation Utilities"
 readme = "README.md"
 license = {text = "MIT"}
