@@ -2,6 +2,12 @@
  jieba-py项目说明
 ##############
 
+.. image:: _static/jieba_logo_enhanced.svg
+   :alt: jieba-py logo
+   :align: center
+   :width: 200px
+
+
 在项目中使用了 ``Jieba`` 分词。由于此模块很长时间不更新，所以我 ``fork`` 了此模块， 并做了一些修改。
 
 - 只保证能运行在 Python 3.10 以上环境，不再考虑 Python 2 的兼容性，简化了一些代码。

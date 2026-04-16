@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, bukun
+# This file is distributed under the same license as the
+# jieba-py[Python结巴分词] package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: jieba-py[Python结巴分词] 0.46.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-16 15:24+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../01-intro.rst:3
+msgid "jieba-py介绍"
+msgstr ""
+
+#: ../../01-intro.rst:7
+msgid "“结巴”中文分词：做最好的 Python 中文分词组件"
+msgstr ""
+
+#: ../../01-intro.rst:9
+msgid ""
+"\"Jieba\" (Chinese for \"to stutter\") Chinese text segmentation: built "
+"to be the best Python Chinese word segmentation module."
+msgstr ""
+
+#: ../../01-intro.rst:14
+msgid "特点"
+msgstr ""
+
+#: ../../01-intro.rst:16
+msgid "支持三种分词模式："
+msgstr ""
+
+#: ../../01-intro.rst:17
+msgid "精确模式，试图将句子最精确地切开，适合文本分析；"
+msgstr ""
+
+#: ../../01-intro.rst:18
+msgid "全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义；"
+msgstr ""
+
+#: ../../01-intro.rst:19
+msgid "搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。"
+msgstr ""
+
+#: ../../01-intro.rst:20
+msgid "支持繁体分词"
+msgstr ""
+
+#: ../../01-intro.rst:21
+msgid "支持自定义词典"
+msgstr ""
+
+#: ../../01-intro.rst:22
+msgid "MIT 授权协议"
+msgstr ""
+
+#: ../../01-intro.rst:26
+msgid "安装说明"
+msgstr ""
+
+#: ../../01-intro.rst:28
+msgid "模块支持 Python 3.10以上版本． 安装方式： ``python3 -m pip install jieba``"
+msgstr ""
+
+#: ../../01-intro.rst:30
+msgid "安装后， 通过 ``import jieba`` 来引用"
+msgstr ""
+
+#: ../../01-intro.rst:40
+msgid "算法"
+msgstr ""
+
+#: ../../01-intro.rst:42
+msgid "基于前缀词典实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图 (DAG)"
+msgstr ""
+
+#: ../../01-intro.rst:43
+msgid "采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合"
+msgstr ""
+
+#: ../../01-intro.rst:44
+msgid "对于未登录词，采用了基于汉字成词能力的 ``HMM`` 模型，使用了 ``Viterbi`` 算法"
+msgstr ""
+
+#: ../../01-intro.rst:46
+msgid "这个程序使用的是传统的HMM（隐马尔可夫模型）+ BMES标注方法："
+msgstr ""
+
+#: ../../01-intro.rst:48
+msgid "优点："
+msgstr ""
+
+#: ../../01-intro.rst:50
+msgid "经典可靠：\\ ``HMM`` 是分词领域的经典算法，\\ ``jieba`` 的核心就是基于此"
+msgstr ""
+
+#: ../../01-intro.rst:51
+msgid "训练速度快：只需要统计计数，计算简单"
+msgstr ""
+
+#: ../../01-intro.rst:52
+msgid "资源占用少：模型文件小，推理快速"
+msgstr ""
+
+#: ../../01-intro.rst:53
+msgid "无监督友好：适合未登录词识别"
+msgstr ""
+
+#: ../../01-intro.rst:55
+msgid "缺点："
+msgstr ""
+
+#: ../../01-intro.rst:57
+msgid "独立性假设过强：\\ ``HMM`` 假设当前状态只依赖前一个状态，无法捕捉长距离依赖"
+msgstr ""
+
+#: ../../01-intro.rst:58
+msgid "特征稀疏：只能利用局部信息，无法利用上下文语义"
+msgstr ""
+
+#: ../../01-intro.rst:59
+msgid "准确率有限：通常在85-90%左右，难以突破瓶颈"
+msgstr ""
+

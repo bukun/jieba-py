@@ -40,13 +40,35 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 root_doc = 'index'
-language = 'zh'
+
+
+# ===================== 修复 Sphinx 9.x 中文搜索 ChineseStemmer 缺失BUG =====================
+html_search_language = 'zh'
+
+def setup(app):
+    app.add_js_file(None, body="""
+        // 提前定义完整的 ChineseStemmer，和官方英文Stemmer逻辑一致
+        window.ChineseStemmer = function() {};
+        window.ChineseStemmer.prototype.stemWord = function(word) {
+            // 中文不做词干提取，直接返回原词
+            return word;
+        };
+        window.ChineseStemmer.prototype.stem = function(word) {
+            return word;
+        };
+        window.ChineseStemmer.prototype.addWord = function() {};
+    """)
+# ========================================================================================
+
+locale_dirs = ['locale/']   # 翻译文件存放目录
+gettext_compact = False     # 为每个源文件生成独立的 po 文件
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
+html_logo = '_static/jieba_logo_enhanced.svg'
 
 # 添加自定义 CSS
 html_css_files = [

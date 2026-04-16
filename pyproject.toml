@@ -82,6 +82,7 @@ dev = [
     "scikit-learn>=1.7.2",
     "sphinxcontrib-programoutput>=0.19",
     "docstrfmt>=2.0.2",
+    "sphinx-intl>=2.3.2",
 ]
 
 
