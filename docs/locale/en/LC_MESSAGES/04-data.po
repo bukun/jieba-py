@@ -22,141 +22,140 @@ msgstr ""
 
 #: ../../04-data.rst:3
 msgid "资源文件说明"
-msgstr ""
+msgstr "Description of Resource Files"
 
 #: ../../04-data.rst:7
 msgid "``dict.txt`` 文件的作用"
-msgstr ""
+msgstr "Role of the ``dict.txt`` file"
 
 #: ../../04-data.rst:9
 msgid ":file:`dict.txt` 是 ``jieba`` 分词的主词典文件，包含约 349,047 行词条。"
-msgstr ""
+msgstr ":file:`dict.txt` is the main dictionary file for ``jieba`` segmentation, containing approximately 349,047 entries."
 
 #: ../../04-data.rst:11
 msgid "人工维护和整理的静态资源文件"
-msgstr ""
+msgstr "Manually maintained and organized static resource files"
 
 #: ../../04-data.rst:12
 msgid "基于大规模中文语料库统计得出"
-msgstr ""
+msgstr "Statistically derived from large-scale Chinese corpora"
 
 #: ../../04-data.rst:13
 msgid "开发者手动更新和维护"
-msgstr ""
+msgstr "Manually updated and maintained by developers"
 
 #: ../../04-data.rst:15
 msgid "每一行的格式为："
-msgstr ""
+msgstr "Format for each line:"
 
 #: ../../04-data.rst:17
 msgid "词语 词频 词性"
-msgstr ""
+msgstr "Word Frequency Part-of-Speech"
 
 #: ../../04-data.rst:19
 msgid "词语：中文词汇"
-msgstr ""
+msgstr "Word: Chinese vocabulary"
 
 #: ../../04-data.rst:20
 msgid "词频：该词在语料库中出现的频率（数字越大越常见）"
-msgstr ""
+msgstr "Frequency: The frequency of the word in the corpus (larger numbers are more common)"
 
 #: ../../04-data.rst:21
 msgid "词性：词语的词性标记（如 n=名词, m=数词, nz=其他专名等）"
-msgstr ""
+msgstr "Part-of-Speech: The POS tag of the word (e.g., n=noun, m=numeral, nz=other proper name, etc.)"
 
 #: ../../04-data.rst:25
 msgid "``dict.txt`` 与 ``finalseg`` / ``posseg`` 的关系"
-msgstr ""
+msgstr "Relationship between ``dict.txt`` and ``finalseg`` / ``posseg``"
 
 #: ../../04-data.rst:27
-msgid "它们有关系但职责不同："
-msgstr ""
+msgid "它们有关系 but 职责不同："
+msgstr "They are related but have different responsibilities:"
 
 #: ../../rel_txt.csv:1
 msgid "文件/目录"
-msgstr ""
+msgstr "File/Directory"
 
 #: ../../rel_txt.csv:1
 msgid "作用"
-msgstr ""
+msgstr "Role"
 
 #: ../../rel_txt.csv:1
 msgid "是否生成 ``dict.txt``"
-msgstr ""
+msgstr "Generates ``dict.txt``"
 
 #: ../../rel_txt.csv:1
 msgid "主词典：包含所有已知词汇及其频率"
-msgstr ""
+msgstr "Main dictionary: contains all known words and their frequencies"
 
 #: ../../rel_txt.csv:1
 msgid "❌ 静态文件，人工维护 ``finalseg`` /"
-msgstr ""
+msgstr "❌ Static file, manually maintained ``finalseg`` /"
 
 #: ../../rel_txt.csv:1
 msgid "HMM"
-msgstr ""
+msgstr "HMM"
 
 #: ../../rel_txt.csv:1
 msgid "模型参数：用于未登录词识别"
-msgstr ""
+msgstr "Model parameters: used for out-of-vocabulary word recognition"
 
 #: ../../rel_txt.csv:1
 msgid "⚠️  ``.py``  从 ``.p`` 转换而来 ``posseg/``"
-msgstr ""
+msgstr "⚠️ ``.py`` converted from ``.p`` ``posseg/``"
 
 #: ../../rel_txt.csv:1
 msgid "词性标注模型参数"
-msgstr ""
+msgstr "Part-of-speech tagging model parameters"
 
 #: ../../rel_txt.csv:1
 msgid "⚠️ ``.py`` 从 ``.p`` 转换而来"
-msgstr ""
+msgstr "⚠️ ``.py`` converted from ``.p``"
 
 #: ../../04-data.rst:36
 msgid "工作流程："
-msgstr ""
+msgstr "Workflow:"
 
 #: ../../04-data.rst:53
 msgid "加载过程："
-msgstr ""
+msgstr "Loading Process:"
 
 #: ../../04-data.rst:55
 msgid "资源文件加载过程："
-msgstr ""
+msgstr "Resource File Loading Process:"
 
 #: ../../04-data.rst:57
 msgid "首次运行时，从 ``dict.txt`` 读取所有词条"
-msgstr ""
+msgstr "On the first run, read all entries from ``dict.txt``"
 
 #: ../../04-data.rst:58
 msgid "构建前缀树结构（包含所有词及其前缀）"
-msgstr ""
+msgstr "Build a prefix tree structure (containing all words and their prefixes)"
 
 #: ../../04-data.rst:59
 msgid "缓存到 ``jieba.cache`` 文件（ ``marshal`` 格式），加速后续加载"
-msgstr ""
+msgstr "Cache to the ``jieba.cache`` file (in ``marshal`` format) to speed up subsequent loads"
 
 #: ../../04-data.rst:60
 msgid "分词时使用前缀树快速匹配"
-msgstr ""
+msgstr "Use the prefix tree for fast matching during segmentation"
 
 #: ../../04-data.rst:64
 msgid "总结"
-msgstr ""
+msgstr "Summary"
 
 #: ../../04-data.rst:66
 msgid "``dict.txt`` 是核心词典，静态文件，非生成"
-msgstr ""
+msgstr "``dict.txt`` is the core dictionary, a static file, not generated"
 
 #: ../../04-data.rst:67
 msgid "``finalseg``/ 和 ``posseg``/ 是统计模型参数，用于增强分词能力"
-msgstr ""
+msgstr "``finalseg``/ and ``posseg``/ are statistical model parameters used to enhance segmentation capabilities"
 
 #: ../../04-data.rst:68
 msgid "三者配合工作：词典负责已知词，HMM 负责未知词，\\ ``posseg`` 负责词性标注"
-msgstr ""
+msgstr "The three work together: the dictionary handles known words, HMM handles unknown words, and ``posseg`` handles part-of-speech tagging."
 
 #: ../../04-data.rst:69
 msgid "这种设计让 ``jieba`` 既能准确切分常见词，又能智能处理新词"
-msgstr ""
-
+msgstr "This design allows ``jieba`` to both accurately segment common words and intelligently handle new words."

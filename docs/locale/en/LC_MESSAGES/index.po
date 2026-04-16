@@ -22,58 +22,62 @@ msgstr ""
 
 #: ../../index.rst:30
 msgid "文档目录"
-msgstr ""
+msgstr "Table of Contents"
 
 #: ../../index.rst:3
 msgid "jieba-py项目说明"
-msgstr "Introduction for jieba-py"
+msgstr "jieba-py Project Description"
 
 #: ../../index.rst:5
 msgid "jieba-py logo"
-msgstr ""
+msgstr "jieba-py logo"
 
 #: ../../index.rst:11
 msgid "在项目中使用了 ``Jieba`` 分词。由于此模块很长时间不更新，所以我 ``fork`` 了此模块， 并做了一些修改。"
-msgstr ""
+msgstr "The project uses ``Jieba`` for segmentation. Since this module has not been updated for a long time, I have ``forked`` it and made some modifications."
 
 #: ../../index.rst:13
 msgid "只保证能运行在 Python 3.10 以上环境，不再考虑 Python 2 的兼容性，简化了一些代码。"
-msgstr ""
+msgstr "It is only guaranteed to run in environments with Python 3.10 or above. Python 2 compatibility is no longer considered, and some code has been simplified."
 
 #: ../../index.rst:14
 msgid "对代码进行了格式化，方便阅读。暂时不会进行较大的修改。"
-msgstr ""
+msgstr "The code has been formatted for easier reading. No major changes will be made for the time being."
 
 #: ../../index.rst:15
 msgid "在程序结构上使用了更新的技术手段来保证工程的稳定开发。"
-msgstr ""
+msgstr "Updated technical means have been used in the program structure to ensure the stable development of the project."
 
 #: ../../index.rst:16
 msgid "单元测试进行逐步的修改。这部分不影响核心逻辑，修改影响不大。"
-msgstr ""
+msgstr "Unit tests are being gradually modified. This part does not affect the core logic, and the impact of these modifications is minor."
 
 #: ../../index.rst:17
 msgid "打包方式进行了修改，使用了 ``pyproject.toml`` 配置文件， 放弃原来的 ``setup.py`` 配置文件。"
-msgstr ""
+msgstr "The packaging method has been modified to use the ``pyproject.toml`` configuration file, abandoning the original ``setup.py`` configuration file."
 
 #: ../../index.rst:18
 msgid ""
-"发布到 ``pypi`` 时使用 ``jieba-py`` 命名。 目前与原 ``jieba`` 分词用法完全一样， 只需要安装 ``jieba-"
-"py`` 来代替 ``jieba`` 。 为了保持兼容性，使用了 ``jieba`` 模块名，安装时会与旧版本冲突。 如果安装了 "
-"``jieba`` 模块，一定要先卸载 ``jieba`` 模块： ``python3 -m pip install jieba`` 。"
+"发布到 ``pypi`` 时使用 ``jieba-py`` 命名。 目前与原 ``jieba`` 分词用法完全一样， "
+"只需要安装 ``jieba-py`` 来代替 ``jieba`` 。 为了保持兼容性，使用了 ``jieba`` 模块名，安装时会与旧版本冲突。 "
+"如果安装了 ``jieba`` 模块，一定要先卸载 ``jieba`` 模块： ``python3 -m pip install jieba`` 。"
 msgstr ""
+"When published to ``pypi``, it uses the name ``jieba-py``. Currently, the usage is exactly the same as the original ``jieba``. "
+"You only need to install ``jieba-py`` to replace ``jieba``. To maintain compatibility, the ``jieba`` module name is used, which will conflict with the old version during installation. "
+"If the ``jieba`` module is installed, be sure to uninstall it first: ``python3 -m pip uninstall jieba``."
 
 #: ../../index.rst:21
 msgid ""
 "移除了对于 ``paddle`` 模式的支持。 一方面，\\ ``paddle`` 模式已经不再维护， 另一方面，\\ ``paddle`` "
 "模式在Python 3.10以上版本中无法运行。"
 msgstr ""
+"Support for ``paddle`` mode has been removed. On one hand, ``paddle`` mode is no longer maintained. "
+"On the other hand, ``paddle`` mode cannot run in Python versions 3.10 and above."
 
 #: ../../index.rst:26
 msgid "目前 ``jieba-py`` 模块已经发布到 ``pypi`` 上，请使用 ``pip`` 安装。最新版本为： |version|"
-msgstr ""
+msgstr "The ``jieba-py`` module has been published on ``pypi``. Please use ``pip`` to install. The latest version is: |version|"
 
 #: ../../index.rst:28
 msgid "``python3 -m pip install jieba-py``"
-msgstr ""
-
+msgstr "``python3 -m pip install jieba-py``"

@@ -22,119 +22,118 @@ msgstr ""
 
 #: ../../09-old.rst:3
 msgid "原文档其他内容"
-msgstr ""
+msgstr "Other Content from Original Documentation"
 
 #: ../../09-old.rst:5
 msgid "原文档的其他内容，暂时保存到这里。 很多资源已经有变化，内容的修改，增删需要时间进行排查。"
-msgstr ""
+msgstr "Other content from the original documentation is temporarily saved here. Many resources have changed, and it will take time to investigate and modify, add, or delete the content."
 
 #: ../../09-old.rst:9
 msgid "友情链接"
-msgstr ""
+msgstr "Friendly Links"
 
 #: ../../09-old.rst:11
 msgid "https://github.com/baidu/lac 百度中文词法分析（分词+词性+专名）系统"
-msgstr ""
+msgstr "https://github.com/baidu/lac Baidu Chinese Lexical Analysis (segmentation + POS + proper name) system"
 
 #: ../../09-old.rst:12
 msgid "https://github.com/baidu/AnyQ 百度FAQ自动问答系统"
-msgstr ""
+msgstr "https://github.com/baidu/AnyQ Baidu FAQ automatic question answering system"
 
 #: ../../09-old.rst:13
 msgid "https://github.com/baidu/Senta 百度情感识别系统"
-msgstr ""
+msgstr "https://github.com/baidu/Senta Baidu sentiment recognition system"
 
 #: ../../09-old.rst:17
 msgid "系统集成"
-msgstr ""
+msgstr "System Integration"
 
 #: ../../09-old.rst:19
 msgid "Solr: https://github.com/sing1ee/jieba-solr"
-msgstr ""
+msgstr "Solr: https://github.com/sing1ee/jieba-solr"
 
 #: ../../09-old.rst:23
 msgid "分词速度"
-msgstr ""
+msgstr "Segmentation Speed"
 
 #: ../../09-old.rst:25
 msgid "1.5 MB / Second in Full Mode"
-msgstr ""
+msgstr "1.5 MB / Second in Full Mode"
 
 #: ../../09-old.rst:26
 msgid "400 KB / Second in Default Mode"
-msgstr ""
+msgstr "400 KB / Second in Default Mode"
 
 #: ../../09-old.rst:27
 msgid "测试环境: Intel(R) Core(TM) i7-2600 CPU @ 3.4GHz；《围城》.txt"
-msgstr ""
+msgstr "Test Environment: Intel(R) Core(TM) i7-2600 CPU @ 3.4GHz; \"Wei Cheng\".txt"
 
 #: ../../09-old.rst:31
 msgid "常见问题"
-msgstr ""
+msgstr "FAQ"
 
 #: ../../09-old.rst:33
 msgid "模型的数据是如何生成的？"
-msgstr ""
+msgstr "How is the model data generated?"
 
 #: ../../09-old.rst:35
 msgid "详见： https://github.com/fxsjy/jieba/issues/7"
-msgstr ""
+msgstr "See details: https://github.com/fxsjy/jieba/issues/7"
 
 #: ../../09-old.rst:37
 msgid "“台中”总是被切成“台 中”？（以及类似情况）"
-msgstr ""
+msgstr "\"Taichung\" is always segmented into \"Tai Chung\"? (and similar cases)"
 
 #: ../../09-old.rst:39
 msgid "P(台中) ＜ P(台)×P(中)，“台中”词频不够导致其成词概率较低"
-msgstr ""
+msgstr "P(Taichung) < P(Tai) × P(Chung); the frequency of \"Taichung\" is not enough, resulting in a lower probability of forming a word."
 
 #: ../../09-old.rst:41
 msgid "解决方法：强制调高词频"
-msgstr ""
+msgstr "Solution: Forcefully increase the word frequency"
 
 #: ../../09-old.rst:43
 msgid "`jieba.add_word('台中')` 或者 `jieba.suggest_freq('台中', True)`"
-msgstr ""
+msgstr "`jieba.add_word('台中')` or `jieba.suggest_freq('台中', True)`"
 
 #: ../../09-old.rst:45
 msgid "“今天天气 不错”应该被切成“今天 天气 不错”？（以及类似情况）"
-msgstr ""
+msgstr "\"Today's weather is good\" should be segmented as \"Today weather good\"? (and similar cases)"
 
 #: ../../09-old.rst:47
 msgid "解决方法：强制调低词频"
-msgstr ""
+msgstr "Solution: Forcefully decrease the word frequency"
 
 #: ../../09-old.rst:49
 msgid "`jieba.suggest_freq(('今天', '天气'), True)`"
-msgstr ""
+msgstr "`jieba.suggest_freq(('今天', '天气'), True)`"
 
 #: ../../09-old.rst:51
 msgid "或者直接删除该词 `jieba.del_word('今天天气')`"
-msgstr ""
+msgstr "Or delete the word directly: `jieba.del_word('今天天气')`"
 
 #: ../../09-old.rst:53
 msgid "切出了词典中没有的词语，效果不理想？"
-msgstr ""
+msgstr "Segmented words that are not in the dictionary, with unsatisfactory results?"
 
 #: ../../09-old.rst:55
 msgid "解决方法：关闭新词发现"
-msgstr ""
+msgstr "Solution: Disable new word discovery"
 
 #: ../../09-old.rst:57
 msgid "`jieba.cut('丰田太省了', HMM=False)` `jieba.cut('我们中出了一个叛徒', HMM=False)`"
-msgstr ""
+msgstr "`jieba.cut('丰田太省了', HMM=False)` `jieba.cut('我们中出了一个叛徒', HMM=False)`"
 
 #: ../../09-old.rst:59
 msgid ""
 "**更多问题请点击**\\ ：\\ "
 "https://github.com/fxsjy/jieba/issues?sort=updated&state=closed"
-msgstr ""
+msgstr "**For more issues, please click**: https://github.com/fxsjy/jieba/issues?sort=updated&state=closed"
 
 #: ../../09-old.rst:63
 msgid "修订历史"
-msgstr ""
+msgstr "Revision History"
 
 #: ../../09-old.rst:65
 msgid "https://github.com/fxsjy/jieba/blob/master/Changelog"
-msgstr ""
-
+msgstr "https://github.com/fxsjy/jieba/blob/master/Changelog"
