@@ -1,6 +1,6 @@
 .PHONY: build test format docs html clean
 
-build: clean test
+build: run_helper clean test
 	#rm -f dist/*
 	python -m build
 	# 或使用 PDM（如果安装了）
@@ -14,11 +14,12 @@ docstrfmt:
 format:
 	uvx ruff check --fix .
 	uvx ruff format .
-install: clean
+install: run_helper clean
 	python3 -m pip install .
 clean:
 	rm -rf build dist *.egg-info _build/html
-
+run_helper:
+	python3 script_helper.py
 sync:
 	uv sync
 
