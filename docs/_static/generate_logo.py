@@ -1,7 +1,9 @@
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-import numpy as np
 import os
+
+import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 def draw_premium_jieba_logo(output_file='jieba_logo_enhanced.png'):
     # 配置参数

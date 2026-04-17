@@ -1,7 +1,6 @@
 from .textrank import TextRank
 from .tfidf import TFIDF
 
-
 default_tfidf = TFIDF()
 default_textrank = TextRank()
 

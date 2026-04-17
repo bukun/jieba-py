@@ -1,6 +1,8 @@
-import svgwrite
-import numpy as np
 import os
+
+import numpy as np
+import svgwrite
+
 
 def draw_premium_jieba_svg(output_file='jieba_logo_enhanced.svg'):
     # 创建画布 (宽 800, 高 400)
