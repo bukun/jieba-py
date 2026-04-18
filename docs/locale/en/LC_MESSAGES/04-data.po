@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jieba-py[Python结巴分词] 0.46.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-16 15:24+0800\n"
+"POT-Creation-Date: 2026-04-18 23:10+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -30,7 +30,9 @@ msgstr "Role of the ``dict.txt`` file"
 
 #: ../../04-data.rst:9
 msgid ":file:`dict.txt` 是 ``jieba`` 分词的主词典文件，包含约 349,047 行词条。"
-msgstr ":file:`dict.txt` is the main dictionary file for ``jieba`` segmentation, containing approximately 349,047 entries."
+msgstr ""
+":file:`dict.txt` is the main dictionary file for ``jieba`` segmentation, "
+"containing approximately 349,047 entries."
 
 #: ../../04-data.rst:11
 msgid "人工维护和整理的静态资源文件"
@@ -58,18 +60,23 @@ msgstr "Word: Chinese vocabulary"
 
 #: ../../04-data.rst:20
 msgid "词频：该词在语料库中出现的频率（数字越大越常见）"
-msgstr "Frequency: The frequency of the word in the corpus (larger numbers are more common)"
+msgstr ""
+"Frequency: The frequency of the word in the corpus (larger numbers are "
+"more common)"
 
 #: ../../04-data.rst:21
 msgid "词性：词语的词性标记（如 n=名词, m=数词, nz=其他专名等）"
-msgstr "Part-of-Speech: The POS tag of the word (e.g., n=noun, m=numeral, nz=other proper name, etc.)"
+msgstr ""
+"Part-of-Speech: The POS tag of the word (e.g., n=noun, m=numeral, "
+"nz=other proper name, etc.)"
 
 #: ../../04-data.rst:25
 msgid "``dict.txt`` 与 ``finalseg`` / ``posseg`` 的关系"
 msgstr "Relationship between ``dict.txt`` and ``finalseg`` / ``posseg``"
 
 #: ../../04-data.rst:27
-msgid "它们有关系 but 职责不同："
+#, fuzzy
+msgid "它们有关系但职责不同："
 msgstr "They are related but have different responsibilities:"
 
 #: ../../rel_txt.csv:1
@@ -134,7 +141,9 @@ msgstr "Build a prefix tree structure (containing all words and their prefixes)"
 
 #: ../../04-data.rst:59
 msgid "缓存到 ``jieba.cache`` 文件（ ``marshal`` 格式），加速后续加载"
-msgstr "Cache to the ``jieba.cache`` file (in ``marshal`` format) to speed up subsequent loads"
+msgstr ""
+"Cache to the ``jieba.cache`` file (in ``marshal`` format) to speed up "
+"subsequent loads"
 
 #: ../../04-data.rst:60
 msgid "分词时使用前缀树快速匹配"
@@ -150,12 +159,19 @@ msgstr "``dict.txt`` is the core dictionary, a static file, not generated"
 
 #: ../../04-data.rst:67
 msgid "``finalseg``/ 和 ``posseg``/ 是统计模型参数，用于增强分词能力"
-msgstr "``finalseg``/ and ``posseg``/ are statistical model parameters used to enhance segmentation capabilities"
+msgstr ""
+"``finalseg``/ and ``posseg``/ are statistical model parameters used to "
+"enhance segmentation capabilities"
 
 #: ../../04-data.rst:68
 msgid "三者配合工作：词典负责已知词，HMM 负责未知词，\\ ``posseg`` 负责词性标注"
-msgstr "The three work together: the dictionary handles known words, HMM handles unknown words, and ``posseg`` handles part-of-speech tagging."
+msgstr ""
+"The three work together: the dictionary handles known words, HMM handles "
+"unknown words, and ``posseg`` handles part-of-speech tagging."
 
 #: ../../04-data.rst:69
 msgid "这种设计让 ``jieba`` 既能准确切分常见词，又能智能处理新词"
-msgstr "This design allows ``jieba`` to both accurately segment common words and intelligently handle new words."
+msgstr ""
+"This design allows ``jieba`` to both accurately segment common words and "
+"intelligently handle new words."
+

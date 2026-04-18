@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jieba-py[Python结巴分词] 0.46.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-16 15:24+0800\n"
+"POT-Creation-Date: 2026-04-18 23:10+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -32,19 +32,25 @@ msgstr "Other Dictionaries"
 msgid ""
 "占用内存较小的词典文件 "
 "https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small"
-msgstr "Dictionary files with smaller memory footprint https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small"
+msgstr ""
+"Dictionary files with smaller memory footprint "
+"https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small"
 
 #: ../../08-append.rst:11
 msgid ""
 "支持繁体分词更好的词典文件 "
 "https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big"
-msgstr "Dictionary files with better support for traditional Chinese segmentation https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big"
+msgstr ""
+"Dictionary files with better support for traditional Chinese segmentation"
+" https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big"
 
 #: ../../08-append.rst:14
 msgid ""
 "下载你所需要的词典，然后覆盖 :file:`jieba/dict.txt` 即可； 或者用 "
 "``jieba.set_dictionary('data/dict.txt.big')``"
-msgstr "Download the dictionary you need and overwrite :file:`jieba/dict.txt`; or use ``jieba.set_dictionary('data/dict.txt.big')``"
+msgstr ""
+"Download the dictionary you need and overwrite :file:`jieba/dict.txt`; or"
+" use ``jieba.set_dictionary('data/dict.txt.big')``"
 
 #: ../../08-append.rst:19
 msgid "其他语言实现"
@@ -147,20 +153,34 @@ msgid "人民日报标注语料库（PFR）"
 msgstr "People's Daily Annotated Corpus (PFR)"
 
 #: ../../08-append.rst:81
+#, fuzzy
 msgid ""
-"PFR语料库是对人民日报1998年上半年的纯文本语料进行了词语切分和词性标注制作而成的， 严格按照人民日报的日期、版序、文章顺序编排的. "
+"PFR语料库是对人民日报1998年上半年的纯文本语料进行了词语切分和词性标注制作而成的， 严格按照人民日报的日期、版序、文章顺序编排的。 "
 "文章中的每个词语都带有词性标记。"
-msgstr "The PFR corpus is created by segmenting and part-of-speech tagging the plain text corpus of People's Daily from the first half of 1998, strictly following the date, edition, and article order. Each word in the article has a part-of-speech tag."
+msgstr ""
+"The PFR corpus is created by segmenting and part-of-speech tagging the "
+"plain text corpus of People's Daily from the first half of 1998, strictly"
+" following the date, edition, and article order. Each word in the article"
+" has a part-of-speech tag."
 
 #: ../../08-append.rst:84
 msgid ""
 "目前的标记集里有26个基本词类标记（名词n、时间词t、处所词s、方位词f、数词m、 "
-"量词q、区别词b、代词r、动词v、形容词a、状态词z、副词d、介词p、连词c、助词u、 "
-"语气词y、叹词e、拟声词o、成语i、习惯用语l、简称j、 "
+"量词q、区别词b、代词r、动词v、形容词a、状态词z、副词d、介词p、连词c、助词u、 语气词y、叹词e、拟声词o、成语i、习惯用语l、简称j、 "
 "前接成分h、后接成分k、语素g、非语素字x、标点符号w）外， "
 "从语料库应用的角度，增加了专有名词（人名nr、地名ns、机构名称nt、其他专有名词nz）； "
 "从语言学角度也增加了一些标记，总共使用了40多个个标记。"
-msgstr "The current tag set includes 26 basic part-of-speech tags (noun n, time word t, place word s, direction word f, numeral m, quantifier q, distinguishing word b, pronoun r, verb v, adjective a, status word z, adverb d, preposition p, conjunction c, auxiliary word u, modal word y, interjection e, onomatopoeia o, idiom i, habitual expression l, abbreviation j, prefix h, suffix k, morpheme g, non-morpheme x, punctuation w). From the perspective of corpus application, proper nouns (person name nr, place name ns, organization name nt, other proper noun nz) have been added; from a linguistic perspective, some other tags have also been added, totaling more than 40 tags."
+msgstr ""
+"The current tag set includes 26 basic part-of-speech tags (noun n, time "
+"word t, place word s, direction word f, numeral m, quantifier q, "
+"distinguishing word b, pronoun r, verb v, adjective a, status word z, "
+"adverb d, preposition p, conjunction c, auxiliary word u, modal word y, "
+"interjection e, onomatopoeia o, idiom i, habitual expression l, "
+"abbreviation j, prefix h, suffix k, morpheme g, non-morpheme x, "
+"punctuation w). From the perspective of corpus application, proper nouns "
+"(person name nr, place name ns, organization name nt, other proper noun "
+"nz) have been added; from a linguistic perspective, some other tags have "
+"also been added, totaling more than 40 tags."
 
 #: ../../08-append.rst:90
 msgid "生语料库和熟语料库"
@@ -170,7 +190,11 @@ msgstr "Raw Corpus and Processed Corpus"
 msgid ""
 "语料库中存放的是在语言的实际使用中真实出现过的语言材料， 语料库是以电子计算机为载体承载语言知识的基础资源， "
 "真实语料需要经过加工、分析和处理之后才能成为可用的语料库。"
-msgstr "A corpus contains linguistic materials that have actually occurred in the real use of language. It is a fundamental resource for linguistic knowledge carried by electronic computers. Real linguistic data must be processed, analyzed, and handled before it can become a usable corpus."
+msgstr ""
+"A corpus contains linguistic materials that have actually occurred in the"
+" real use of language. It is a fundamental resource for linguistic "
+"knowledge carried by electronic computers. Real linguistic data must be "
+"processed, analyzed, and handled before it can become a usable corpus."
 
 #: ../../08-append.rst:95
 msgid "生语料库"
@@ -206,33 +230,58 @@ msgstr "Format Description"
 
 #: ../../08-append.rst:161
 msgid "语料是纯文本文件，文件中每一行代表一自然段或者一个标题， 一篇文章有若干个自然段， 因此在语料中一篇文章是由多行组成的。"
-msgstr "The corpus consists of plain text files, where each line represents a paragraph or a title. An article has several paragraphs, so an article in the corpus is composed of multiple lines."
+msgstr ""
+"The corpus consists of plain text files, where each line represents a "
+"paragraph or a title. An article has several paragraphs, so an article in"
+" the corpus is composed of multiple lines."
 
 #: ../../08-append.rst:163
 msgid ""
 "每一行的开头是编号。 比如 ``19980101-01-001-001`` "
 "表示这一自然段是1998年1月1日的第01版的第001篇文章的第001自然段， 用短横线隔开的4部分按照顺序是“年月日-版号-篇章号-段号”。 "
 "标号也作为一个词进行标注，词性固定为“m（数词）”。"
-msgstr "The beginning of each line is a serial number. For example, ``19980101-01-001-001`` indicates that this paragraph is the 001st paragraph of the 001st article in the 01st edition on January 1, 1998. The four parts separated by hyphens are \"YearMonthDay-Edition-Article-Paragraph\". The serial number is also tagged as a word, with the fixed part of speech \"m (numeral)\"."
+msgstr ""
+"The beginning of each line is a serial number. For example, "
+"``19980101-01-001-001`` indicates that this paragraph is the 001st "
+"paragraph of the 001st article in the 01st edition on January 1, 1998. "
+"The four parts separated by hyphens are \"YearMonthDay-Edition-Article-"
+"Paragraph\". The serial number is also tagged as a word, with the fixed "
+"part of speech \"m (numeral)\"."
 
 #: ../../08-append.rst:166
 msgid ""
 "一篇文章里面的段落之间是不空行的，在两篇文章之间，会有一个空行，表示文章的分界线， 同时，下一篇文章的“篇章号-段号”都会有所改变。 "
 "标号之后，是2个单字节空格，然后开始正文。"
-msgstr "There are no empty lines between paragraphs within an article. Between two articles, there is an empty line to indicate the boundary. At the same time, the \"Article-Paragraph\" numbers of the next article will change. After the serial number, there are 2 single-byte spaces, followed by the main text."
+msgstr ""
+"There are no empty lines between paragraphs within an article. Between "
+"two articles, there is an empty line to indicate the boundary. At the "
+"same time, the \"Article-Paragraph\" numbers of the next article will "
+"change. After the serial number, there are 2 single-byte spaces, followed"
+" by the main text."
 
 #: ../../08-append.rst:169
 msgid ""
 "正文部分按照规范已经切分成词，并且加上标注， 标注的格式为“词语/词性”，即词语后面加单斜线，再紧跟词性标记。 "
 "词与词之间用2个单字节空格隔开。每段最后的词，在标记之后也有2个单字节空格，保持格式一致。 语料中除了词性标记以外，还有“短语标记”， "
 "这种情况一般出现在机构团体名称、成语等情况中。"
-msgstr "The main text has been segmented into words according to specifications and annotated. The annotation format is \"word/POS\", i.e., a single slash after the word followed by the POS tag. Words are separated by 2 single-byte spaces. The last word of each paragraph also has 2 single-byte spaces after the tag to maintain consistent formatting. In addition to POS tags, there are also \"phrase tags\" in the corpus, which usually appear in organization names, idioms, etc."
+msgstr ""
+"The main text has been segmented into words according to specifications "
+"and annotated. The annotation format is \"word/POS\", i.e., a single "
+"slash after the word followed by the POS tag. Words are separated by 2 "
+"single-byte spaces. The last word of each paragraph also has 2 single-"
+"byte spaces after the tag to maintain consistent formatting. In addition "
+"to POS tags, there are also \"phrase tags\" in the corpus, which usually "
+"appear in organization names, idioms, etc."
 
 #: ../../08-append.rst:173
 msgid ""
 "如“通过/p [中央/n 人民/n 广播/vn 电台/n]nt 、/w”中， 用“[ ]”合起来的部分是一个完整的机构团体名称， "
 "方括号后面紧跟标注 ``nt`` ，\\ ``nt`` 之后空两个单字节空格，保持了格式的一致。"
-msgstr "For example, in \"通过/p [中央/n 人民/n 广播/vn 电台/n]nt 、/w\", the part combined with \"[ ]\" is a complete organization name, followed by the tag ``nt``. After ``nt``, there are two single-byte spaces, maintaining format consistency."
+msgstr ""
+"For example, in \"通过/p [中央/n 人民/n 广播/vn 电台/n]nt 、/w\", the part combined "
+"with \"[ ]\" is a complete organization name, followed by the tag ``nt``."
+" After ``nt``, there are two single-byte spaces, maintaining format "
+"consistency."
 
 #: ../../08-append.rst:176
 msgid "例子"
@@ -260,7 +309,9 @@ msgstr "Citation Format"
 
 #: ../../08-append.rst:203
 msgid "北大中文《人民日报》199801-199806数据集介绍"
-msgstr "Introduction to the Peking University Chinese \"People's Daily\" 199801-199806 Dataset"
+msgstr ""
+"Introduction to the Peking University Chinese \"People's Daily\" "
+"199801-199806 Dataset"
 
 #: ../../08-append.rst:205
 msgid "数据集概述"
@@ -270,7 +321,12 @@ msgstr "Dataset Overview"
 msgid ""
 "PFR语料库是在得到相关新闻信息中心许可的条件下，以1998年人民日报语料为对象制作的标注语料库。 "
 "该数据集包含了1998年1月至6月的《人民日报》语料，旨在促进中文信息处理研究的发展。"
-msgstr "The PFR corpus is an annotated corpus produced based on the 1998 People's Daily corpus with permission from the relevant news information center. The dataset includes the \"People's Daily\" corpus from January to June 1998, aimed at promoting the development of Chinese information processing research."
+msgstr ""
+"The PFR corpus is an annotated corpus produced based on the 1998 People's"
+" Daily corpus with permission from the relevant news information center. "
+"The dataset includes the \"People's Daily\" corpus from January to June "
+"1998, aimed at promoting the development of Chinese information "
+"processing research."
 
 #: ../../08-append.rst:210
 msgid "使用说明"
@@ -278,15 +334,23 @@ msgstr "Instructions for Use"
 
 #: ../../08-append.rst:212
 msgid "数据集获取：自4月3日起，PFR语料库1月份的语料在本仓库免费公开，用户可进行下载。"
-msgstr "Dataset Acquisition: Starting from April 3rd, the January corpus of the PFR corpus is publicly available for free in this repository for users to download."
+msgstr ""
+"Dataset Acquisition: Starting from April 3rd, the January corpus of the "
+"PFR corpus is publicly available for free in this repository for users to"
+" download."
 
 #: ../../08-append.rst:213
 msgid "制作规范：PFR语料库的制作遵循《现代汉语语料库加工——词语切分与词性标注规范》。"
-msgstr "Production Specification: The production of the PFR corpus follows the \"Modern Chinese Corpus Processing—Word Segmentation and Part-of-Speech Tagging Specifications\"."
+msgstr ""
+"Production Specification: The production of the PFR corpus follows the "
+"\"Modern Chinese Corpus Processing—Word Segmentation and Part-of-Speech "
+"Tagging Specifications\"."
 
 #: ../../08-append.rst:214
 msgid "引用说明：在使用或引用PFR语料库的研究或论文工作中，请务必注明来源。"
-msgstr "Citation Note: In research or papers using or citing the PFR corpus, please be sure to indicate the source."
+msgstr ""
+"Citation Note: In research or papers using or citing the PFR corpus, "
+"please be sure to indicate the source."
 
 #: ../../08-append.rst:216
 msgid "注意事项"
@@ -294,12 +358,17 @@ msgstr "Precautions"
 
 #: ../../08-append.rst:218
 msgid "请确保在研究和引用过程中遵循学术规范和道德准则。"
-msgstr "Please ensure academic standards and ethical guidelines are followed during research and citation."
+msgstr ""
+"Please ensure academic standards and ethical guidelines are followed "
+"during research and citation."
 
 #: ../../08-append.rst:219
 msgid "本数据集仅用于学术研究目的，不得用于任何商业用途。"
-msgstr "This dataset is for academic research purposes only and may not be used for any commercial purposes."
+msgstr ""
+"This dataset is for academic research purposes only and may not be used "
+"for any commercial purposes."
 
 #: ../../08-append.rst:220
 msgid "我们希望这个数据集能为您的学术研究提供有益的帮助。"
 msgstr "We hope this dataset will be helpful to your academic research."
+
