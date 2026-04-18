@@ -32,7 +32,7 @@ jieba分词其实被很多语言重新。其中不乏一些项目，是可以在
 
     ``python3 -m pip install jieba-py``
 
-文档发布时间： |today|
+文档构建日期： |today|
 
 .. toctree::
     :maxdepth: 2

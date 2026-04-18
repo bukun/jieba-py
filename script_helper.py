@@ -85,7 +85,7 @@ def update_readme():
     md_zh_file = Path('./_build/markdown/index.md')
     if md_zh_file.exists():
         for line in md_zh_file.read_text(encoding='utf-8').splitlines():
-            if '文档发布时间' in line:
+            if '文档发布' in line:
                 break
             else:
                 the_arr.append(line)
@@ -94,7 +94,7 @@ def update_readme():
     if md_en_file.exists():
         the_arr.append('\n')
         for line in md_en_file.read_text(encoding='utf-8').splitlines():
-            if '文档发布时间' in line:
+            if 'Documentation release' in line:
                 break
             else:
                 the_arr.append(line)
