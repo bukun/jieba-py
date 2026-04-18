@@ -5,8 +5,10 @@ build: run_helper clean test
 	python -m build
 	# 或使用 PDM（如果安装了）
 	# pdm build
-html:
-	cd docs && make html && sphinx-build -b html -D language=en . ../_build/html_en
+docs:
+	cd docs && make html && sphinx-build -b html -D language=en . ../_build/html_en \
+		&&  make html && sphinx-build -b markdown -D language=zh . ../_build/markdown \
+		&&  make html && sphinx-build -b markdown -D language=en . ../_build/markdown_en
 test:
 	pytest .
 docstrfmt:

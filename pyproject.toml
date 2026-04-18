@@ -83,6 +83,8 @@ dev = [
     "sphinxcontrib-programoutput>=0.19",
     "docstrfmt>=2.0.2",
     "sphinx-intl>=2.3.2",
+    "myst-parser>=4.0.1",
+    "sphinx-markdown-builder>=0.6.10",
 ]
 
 

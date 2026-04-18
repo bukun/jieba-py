@@ -2,7 +2,7 @@
 """
 与Jieba-py无关的辅助脚本。
 """
-
+import difflib
 import re
 from pathlib import Path
 
@@ -76,16 +76,38 @@ def sync_version(root_dir: str = '.') -> bool:
 
     return True
 
+def update_readme():
+    """
+    更新 README.md 文件
+    """
+    outfile = Path('./ReadMe.md')
+    the_arr = []
+    md_zh_file = Path('./_build/markdown/index.md')
+    if md_zh_file.exists():
+        for line in md_zh_file.read_text(encoding='utf-8').splitlines():
+            if '文档发布时间' in line:
+                break
+            else:
+                the_arr.append(line)
+    md_en_file = Path('./_build/markdown_en/index.md')
+
+    if md_en_file.exists():
+        the_arr.append('\n')
+        for line in md_en_file.read_text(encoding='utf-8').splitlines():
+            if '文档发布时间' in line:
+                break
+            else:
+                the_arr.append(line)
+
+    if outfile.exists() and outfile.read_text().strip() == '\n'.join(the_arr).strip():
+        pass
+    else:
+        print('📝 更新 README.md 文件...')
+        outfile.write_text('\n'.join(the_arr), encoding='utf-8')
+
 
 if __name__ == '__main__':
-    import sys
+    sync_version()
+    update_readme()
 
-    try:
-        synced = sync_version()
-        sys.exit(0)
-    except Exception as e:
-        print(f'❌ 同步失败: {e}')
-        import traceback
 
-        traceback.print_exc()
-        sys.exit(1)
