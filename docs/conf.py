@@ -25,7 +25,7 @@ project_version = pyproject_data['project']['version']
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'jieba-py[Python结巴分词]'
+project = 'jieba-py'
 copyright = '2026, bukun'
 author = 'bukun'
 release = project_version
@@ -42,7 +42,7 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 root_doc = 'index'
-
+language = 'zh_CN'
 
 # ===================== 修复 Sphinx 9.x 中文搜索 ChineseStemmer 缺失BUG =====================
 html_search_language = 'zh'
@@ -81,7 +81,6 @@ html_css_files = [
 html_copy_source = False
 html_show_sourcelink = False
 
-suppress_warnings = ['misc.highlighting_failure', 'docutils.title_overline']
 suppress_warnings = [
     'ref.ref',           # 可选：忽略引用警告
     'toc.tree',          # 可选：忽略目录警告

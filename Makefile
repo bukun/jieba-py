@@ -8,7 +8,8 @@ build: run_helper clean test
 docs:
 	cd docs && make html && sphinx-build -b html -D language=en . ../_build/html_en \
 		&&  make html && sphinx-build -b markdown -D language=zh . ../_build/markdown \
-		&&  make html && sphinx-build -b markdown -D language=en . ../_build/markdown_en
+		&&  make html && sphinx-build -b markdown -D language=en . ../_build/markdown_en \
+		&&  cd .. && python3 script_helper.py
 test:
 	pytest .
 docstrfmt:
