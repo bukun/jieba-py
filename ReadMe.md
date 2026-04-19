@@ -9,8 +9,9 @@
 合并了原来的一点工作，这中间也大量使用了AI工具。
 整体工作量不算大，完成后使用了没有大的问题。目前最新版本已经发布地pipy 。
 
-jieba分词其实被很多语言重新。其中不乏一些项目，是可以在Python中直接使用的。
 这个版本是纯Python语言的继续维护，还是有一些意义的。
+jieba分词其实被很多语言重新进行了实现，
+其中不乏一些项目是可以在Python中直接使用的。
 
 - 只保证能运行在 Python 3.10 以上环境，不再考虑 Python 2 的兼容性，简化了一些代码。
 - 对代码进行了格式化，方便阅读。暂时不会进行较大的修改。
@@ -36,7 +37,7 @@ Much of the work I have done over the years has involved Chinese word segmentati
 
 With the help of AI tools this time, I was able to quickly understand the various modules of the project and found that it was relatively simple. So I `forked` this module and actually made some modifications. I merged some previous work, using AI tools extensively in the process. The overall workload was not large, and there were no major issues after completion. The latest version has now been released to PyPI.
 
-Jieba segmentation has actually been re-implemented in many languages. There are many projects among them that can be used directly in Python. This version’s continued maintenance in pure Python still has some significance.
+This version’s continued maintenance in pure Python still has some significance.Jieba segmentation has actually been re-implemented in many languages. There are many projects among them that can be used directly in Python.
 
 - It is only guaranteed to run in environments with Python 3.10 or above. Python 2 compatibility is no longer considered, and some code has been simplified.
 - The code has been formatted for easier reading. No major changes will be made for the time being.
