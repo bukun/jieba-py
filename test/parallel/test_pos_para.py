@@ -1,10 +1,7 @@
-import sys
-
-sys.path.append('../../')
 import jieba
 
-jieba.enable_parallel(4)
-import jieba.posseg as pseg
+jieba.enable_parallel(4)  # noqa: E402
+import jieba.posseg as pseg  # noqa: E402
 
 
 def cuttest(test_sent):

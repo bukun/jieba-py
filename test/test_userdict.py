@@ -3,7 +3,7 @@ from pathlib import Path
 import jieba
 
 jieba.load_userdict(str(Path(__file__).parent.parent / 'docs/demos/userdict.txt'))
-import jieba.posseg as pseg
+import jieba.posseg as pseg  # noqa: E402
 
 jieba.add_word('石墨烯')
 jieba.add_word('凱特琳')

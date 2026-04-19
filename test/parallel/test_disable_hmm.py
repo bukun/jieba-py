@@ -1,9 +1,6 @@
-import sys
-
-sys.path.append('../../')
 import jieba
 
-jieba.enable_parallel(4)
+jieba.enable_parallel(4)  # noqa: E402
 
 
 def cuttest(test_sent):

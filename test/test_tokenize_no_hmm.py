@@ -1,5 +1,3 @@
-
-
 import jieba
 
 g_mode = 'default'

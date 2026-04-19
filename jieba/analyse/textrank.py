@@ -1,12 +1,10 @@
-#!/usr/bin/env python
-
 import sys
 from collections import defaultdict
 from operator import itemgetter
 
 import jieba.posseg
 
-from .._compat import *
+from .._compat import itervalues
 from .tfidf import KeywordExtractor
 
 

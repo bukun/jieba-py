@@ -1,8 +1,9 @@
-'''
+"""
 bukun: 这个文件，看起来只与whoosh有关。
 似乎没有必要。
 成为独立模块似乎可以。
-'''
+"""
+
 import re
 
 from whoosh.analysis import LowercaseFilter, StemFilter, StopFilter, Token, Tokenizer

@@ -7,7 +7,7 @@
 这次借助于AI工具，得以快速地对项目的各个模块进行了了解，发现项目还是比较简单的。
 所以我 `fork` 了此模块， 实际动手做了一些修改。
 合并了原来的一点工作，这中间也大量使用了AI工具。
-整体工作量不算大，完成后使用了没有大的问题。目前最新版本已经发布于 pypi 。
+整体工作量不算大，完成后使用了没有大的问题。目前最新版本已经发布地pipy 。
 
 这个版本是纯Python语言的继续维护，还是有一些意义的。
 jieba分词其实被很多语言重新进行了实现，
@@ -25,14 +25,9 @@ jieba分词其实被很多语言重新进行了实现，
   3.10以上版本中无法运行。
 
 #### NOTE
-目前 `jieba-py` 模块已经发布到 `pypi` 上，请使用 `pip` 安装。
-使用其他Python包管理安装方法请按各自使用方法进行调整。
-最新版本为： 0.46.10
+目前 `jieba-py` 模块已经发布到 `pypi` 上，请使用 `pip` 安装。最新版本为： 0.46.10
 
 `python3 -m pip install jieba-py`
-
-#### WARNING
-项目的 `ReadMe.md` 文件自动生成、维护，请勿直接修改。
 
 
 
@@ -40,10 +35,7 @@ jieba分词其实被很多语言重新进行了实现，
 
 Much of the work I have done over the years has involved Chinese word segmentation. Jieba is a module that must be installed for almost every project and has always worked very stably. However, since its codebase has not been maintained for a long time, it has been a hidden concern. I have made simple code modifications to remove some warnings. Two years ago, I thought about modifying and updating its source code, but I couldn’t actually do it because I didn’t know enough about natural language processing.
 
-这次借助于AI工具，得以快速地对项目的各个模块进行了了解，发现项目还是比较简单的。
-所以我 `fork` 了此模块， 实际动手做了一些修改。
-合并了原来的一点工作，这中间也大量使用了AI工具。
-整体工作量不算大，完成后使用了没有大的问题。目前最新版本已经发布于 pypi 。
+With the help of AI tools this time, I was able to quickly understand the various modules of the project and found that it was relatively simple. So I `forked` this module and actually made some modifications. I merged some previous work, using AI tools extensively in the process. The overall workload was not large, and there were no major issues after completion. The latest version has now been released to PyPI.
 
 This version’s continued maintenance in pure Python still has some significance.Jieba segmentation has actually been re-implemented in many languages. There are many projects among them that can be used directly in Python.
 
@@ -56,11 +48,6 @@ This version’s continued maintenance in pure Python still has some significanc
 - Support for `paddle` mode has been removed. On one hand, `paddle` mode is no longer maintained. On the other hand, `paddle` mode cannot run in Python versions 3.10 and above.
 
 #### NOTE
-目前 `jieba-py` 模块已经发布到 `pypi` 上，请使用 `pip` 安装。
-使用其他Python包管理安装方法请按各自使用方法进行调整。
-最新版本为： 0.46.10
+The `jieba-py` module has been published on `pypi`. Please use `pip` to install. The latest version is: 0.46.10
 
 `python3 -m pip install jieba-py`
-
-#### WARNING
-项目的 `ReadMe.md` 文件自动生成、维护，请勿直接修改。

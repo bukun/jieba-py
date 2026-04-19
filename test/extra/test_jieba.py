@@ -131,8 +131,9 @@ def test_add_word():
 
     # 添加后应该能识别
 
-    assert '测试新词' in  result_after
+    assert '测试新词' in result_after
     jieba.del_word('测试新词')
+
 
 def test_del_word():
     """测试删除自定义词汇"""
@@ -141,7 +142,6 @@ def test_del_word():
 
     # 删除前应该能识别
     result_before = list(jieba.cut(text))
-
 
     assert '临时词汇' in result_before
 
@@ -153,6 +153,7 @@ def test_del_word():
     # 删除后不应该再作为一个整体出现
     assert '临时词汇' not in result_after
 
+
 def test_suggest_freq():
     """测试调整词语频率"""
     text = '如果放到post中将出错'
@@ -162,8 +163,9 @@ def test_suggest_freq():
     result = list(jieba.cut(text))
 
     # 应该能正确分开
-    assert '中' in  result
-    assert '将' in  result
+    assert '中' in result
+    assert '将' in result
+
 
 def test_load_custom_dict():
     """测试加载自定义词典文件"""
@@ -184,8 +186,8 @@ def test_load_custom_dict():
         text = '这是自定义词1和自定义词2的测试'
         result = list(jieba.cut(text))
 
-        assert '自定义词1' in  result
-        assert '自定义词2' in  result
+        assert '自定义词1' in result
+        assert '自定义词2' in result
     finally:
         # 清理临时文件
         Path(temp_file).unlink()
@@ -218,11 +220,6 @@ class TestJiebaCustomDictionary(unittest.TestCase):
     #
     #     # 添加后应该能识别
     #     self.assertIn('测试新词', result_after)
-
-
-
-
-
 
 
 class TestJiebaKeywordExtraction(unittest.TestCase):
@@ -539,7 +536,7 @@ class TestJiebaCoreFunctions(unittest.TestCase):
     def test_07_short_text_cut(self):
         """测试7：短文本分词"""
         result = jieba.lcut(self.short_text)
-        # ToDo: 
+        # ToDo:
         # self.assertEqual(result, ['我', '爱', 'Python', '编程'])
         self.assertEqual(result, ['我爱', 'Python', '编程'])
         print('✅ 短文本分词测试通过')

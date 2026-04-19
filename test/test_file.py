@@ -11,7 +11,7 @@ def test_file_cut():
     jieba.initialize()
 
     # 默认使用同目录下的 test.txt
-    test_file_path =  Path('data/for-test/test.txt')
+    test_file_path = Path('data/for-test/test.txt')
     assert test_file_path.exists(), f'测试文件 {test_file_path} 不存在'
 
     content = test_file_path.read_bytes()

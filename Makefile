@@ -15,7 +15,7 @@ test:
 docstrfmt:
 	docstrfmt -l 80 docs/*.rst
 format:
-	uvx ruff check --fix .
+	uvx ruff check --fix . --ignore E501
 	uvx ruff format .
 install: run_helper clean
 	python3 -m pip install .

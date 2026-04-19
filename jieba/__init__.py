@@ -1,8 +1,10 @@
-__version__ = '0.46.10'
+__version__ = '0.46.11'
 __license__ = 'MIT'
 
+import logging
 import marshal
 import os
+import sys
 import tempfile
 import threading
 import time
@@ -11,7 +13,14 @@ from math import log
 from pathlib import Path
 
 from . import finalseg
-from ._compat import *
+from ._compat import (
+    get_module_res,
+    iteritems,
+    resolve_filename,
+    strdecode,
+    string_types,
+    text_type,
+)
 from .utils import re_eng_default as re_eng
 from .utils import re_han_default, re_skip_default, re_userdict
 
@@ -128,11 +137,11 @@ class Tokenizer:
                     self.FREQ, self.total = self.gen_pfdict(self.get_dict_file())
                     default_logger.debug(f'Dumping model to file cache {cache_file}')
                     try:
-                        '''
+                        """
                         在 Jieba 初始化时，它会将词典加载到内存并生成一个缓存文件（jieba.cache）。
                         为了安全地更新这个缓存文件，程序会先写到一个临时文件，
                         然后再把临时文件“移动”成正式的缓存文件。
-                        '''
+                        """
                         # prevent moving across different filesystems
                         fd, fpath = tempfile.mkstemp(dir=tmpdir)
                         with os.fdopen(fd, 'wb') as temp_cache_file:

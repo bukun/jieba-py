@@ -1,8 +1,7 @@
 # -*- coding: UTF-8 -*-
 import os
-import sys
 
-sys.path.append('.')
+# sys.path.append('.')
 from whoosh.fields import ID, TEXT, Schema
 from whoosh.index import create_in
 from whoosh.qparser import QueryParser

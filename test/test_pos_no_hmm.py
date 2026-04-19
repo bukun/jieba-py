@@ -1,5 +1,3 @@
-
-
 import jieba.posseg as pseg
 
 

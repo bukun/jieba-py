@@ -3,7 +3,7 @@ import time
 import jieba
 
 jieba.initialize()
-import jieba.posseg
+import jieba.posseg  # noqa: E402
 
 # url = sys.argv[1]
 url = 'data/for-test/test.txt'

@@ -4,12 +4,12 @@ import re
 re_userdict = re.compile(r'^(.+?)( [0-9]+)?( [a-z]+)?$', re.U)
 re_eng_default = re.compile(r'[a-zA-Z0-9]', re.U)
 """
-\u4E00-\u9FD5a-zA-Z0-9+#&\._ : All non-space characters. Will be handled with re_han
+\u4e00-\u9fd5a-zA-Z0-9+#&\._ : All non-space characters. Will be handled with re_han
 \r\n|\s : whitespace characters. Will not be handled.
-re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%]+)", re.U)
+re_han_default = re.compile("([\u4e00-\u9fd5a-zA-Z0-9+#&\._%]+)", re.U)
 Adding "-" symbol in re_han_default
 bk: 原无 `r` 标识 。 jieba/__init__.py:45: SyntaxWarning: invalid escape sequence '\.'
-    re_han_default = re.compile("([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)", re.U)
+    re_han_default = re.compile("([\u4e00-\u9fd5a-zA-Z0-9+#&\._%\-]+)", re.U)
 """
 re_han_default = re.compile(r'([\u4E00-\u9FD5a-zA-Z0-9+#&\._%\-]+)', re.U)
 re_skip_default = re.compile(r'(\r\n|\s)', re.U)

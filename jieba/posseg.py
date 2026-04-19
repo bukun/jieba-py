@@ -70,9 +70,6 @@ def viterbi(obs, states, start_p, trans_p, emit_p):
     return (prob, route)
 
 
-
-
-
 class pair:
     def __init__(self, word, flag):
         self.word = word

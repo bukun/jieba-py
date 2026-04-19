@@ -11,4 +11,3 @@ test_sent = (
 )
 words = jieba.cut(test_sent)
 print('/'.join(words))
-

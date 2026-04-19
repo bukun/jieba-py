@@ -2,6 +2,7 @@
 """
 与Jieba-py无关的辅助脚本。
 """
+
 import re
 from pathlib import Path
 
@@ -75,6 +76,7 @@ def sync_version(root_dir: str = '.') -> bool:
 
     return True
 
+
 def update_readme():
     """
     更新 README.md 文件
@@ -108,5 +110,3 @@ def update_readme():
 if __name__ == '__main__':
     sync_version()
     update_readme()
-
-

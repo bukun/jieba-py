@@ -1,7 +1,5 @@
-import sys
 import time
 
-sys.path.append('../../')
 import jieba
 import jieba.posseg as pseg
 

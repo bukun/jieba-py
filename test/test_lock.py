@@ -53,5 +53,6 @@ def test_lock():
     assert 'QED'
     # assert tokr1.cut('我来到北京清华大学') == tokr2.cut('我来到北京清华大学')
 
+
 if __name__ == '__main__':
     test_lock()

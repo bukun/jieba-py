@@ -1,13 +1,11 @@
 import sys
 
-sys.path.append('../../')
-
 import jieba
 
 jieba.enable_parallel(4)
-from optparse import OptionParser
+from optparse import OptionParser  # noqa: E402
 
-import jieba.analyse
+import jieba.analyse  # noqa: E402
 
 USAGE = 'usage:    python extract_tags.py [file name] -k [top k]'
 

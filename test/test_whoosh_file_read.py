@@ -1,9 +1,7 @@
 # -*- coding: UTF-8 -*-
 import os
-import sys
 
-sys.path.append('.')
-
+# sys.path.append('.')
 from whoosh.fields import ID, TEXT, Schema
 from whoosh.index import open_dir
 from whoosh.qparser import QueryParser

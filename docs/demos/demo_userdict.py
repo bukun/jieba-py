@@ -1,7 +1,6 @@
-
 import jieba
 
-jieba.load_userdict( 'demos/userdict.txt')
+jieba.load_userdict('demos/userdict.txt')
 
 
 test_sent = (
@@ -11,4 +10,3 @@ test_sent = (
 )
 words = jieba.cut(test_sent)
 print('/'.join(words))
-
