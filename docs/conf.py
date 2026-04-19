@@ -31,6 +31,8 @@ author = 'bukun'
 release = project_version
 version = project_version
 
+language = 'zh_CN'
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
