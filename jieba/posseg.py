@@ -4,7 +4,7 @@ from jieba._data.posseg_data.prob_emit import P as emit_P
 from jieba._data.posseg_data.prob_start import P as start_P
 from jieba._data.posseg_data.prob_trans import P as trans_P
 
-from ._compat import *
+from ._compat import resolve_filename, strdecode
 from .utils import (
     re_eng1_pos as re_eng1,
 )

@@ -7,7 +7,7 @@ def cuttest(test_sent):
     global g_mode
     result = jieba.tokenize(test_sent, mode=g_mode, HMM=False)
     for tk in result:
-        print('word %s\t\t start: %d \t\t end:%d' % (tk[0], tk[1], tk[2]))
+        print(f'word {tk[0]}\t\t start: {tk[1]} \t\t end:{tk[2]}')
 
 
 if __name__ == '__main__':

@@ -44,7 +44,7 @@ class TestCompat:
         assert result == [('a', 1), ('b', 2)]
 
     def test_text_type(self):
-        assert _compat.text_type == str
+        assert _compat.text_type is str
 
     def test_string_types(self):
         assert _compat.string_types == (str,)

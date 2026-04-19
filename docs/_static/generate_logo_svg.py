@@ -45,7 +45,10 @@ def draw_premium_jieba_svg(output_file='jieba_logo_enhanced.svg'):
     # --- 2. 绘制文字 "结巴分词" ---
     # SVG 中处理中文字体主要依赖系统安装的字体名称
     font_group = dwg.g(
-        style=f"fill:{text_color}; font-family: 'PingFang SC', 'Microsoft YaHei', 'SimHei', sans-serif; font-weight: bold; font-size: 80px;"
+        style=f"""fill:{text_color}; 
+        font-family: 'PingFang SC', 'Microsoft YaHei', 'SimHei', sans-serif; 
+        font-weight: bold; 
+        font-size: 80px;"""
     )
 
     chars = '结巴分词'

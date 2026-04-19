@@ -160,7 +160,7 @@ class JiebaTestCase(unittest.TestCase):
             result = list(result)
             assert isinstance(result, list), f'Test Tokenize error on content: {content}'
             for tk in result:
-                print('word %s\t\t start: %d \t\t end:%d' % (tk[0], tk[1], tk[2]), file=sys.stderr)
+                print(f'word {tk[0]}\t\t start: {tk[1]} \t\t end:{tk[2]}', file=sys.stderr)
         print('testTokenize', file=sys.stderr)
 
     def testDefaultCut_NOHMM(self):
@@ -190,7 +190,7 @@ class JiebaTestCase(unittest.TestCase):
             result = list(result)
             assert isinstance(result, list), f'Test Tokenize error on content: {content}'
             for tk in result:
-                print('word %s\t\t start: %d \t\t end:%d' % (tk[0], tk[1], tk[2]), file=sys.stderr)
+                print(f'word {tk[0]}\t\t start: {tk[1]} \t\t end:{tk[2]}', file=sys.stderr)
         print('testTokenize_NOHMM', file=sys.stderr)
 
     def testCutForSearch_NOHMM(self):

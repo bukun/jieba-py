@@ -51,13 +51,13 @@ t0 = time.time()
 print('training...')
 
 nmf = decomposition.NMF(n_components=n_topic).fit(tfidf)
-print('done in %0.3fs.' % (time.time() - t0))
+print(f'done in {time.time() - t0:.3f}s.')
 
 # Inverse the vectorizer vocabulary to be able
 # feature_names = count_vect.get_feature_names()
 feature_names = count_vect.get_feature_names_out()
 
 for topic_idx, topic in enumerate(nmf.components_):
-    print('Topic #%d:' % topic_idx)
+    print(f'Topic #{topic_idx}:')
     print(' '.join([feature_names[i] for i in topic.argsort()[: -n_top_words - 1 : -1]]))
     print('')

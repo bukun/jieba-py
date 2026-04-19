@@ -45,7 +45,6 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 root_doc = 'index'
-language = 'zh_CN'
 
 # ===================== 修复 Sphinx 9.x 中文搜索 ChineseStemmer 缺失BUG =====================
 html_search_language = 'zh'

@@ -2,7 +2,7 @@ from jieba._data.finalseg_data.prob_emit import P as emit_P
 from jieba._data.finalseg_data.prob_start import P as start_P
 from jieba._data.finalseg_data.prob_trans import P as trans_P
 
-from ._compat import *
+from ._compat import strdecode
 from .utils import re_han_final as re_han
 from .utils import re_skip_final as re_skip
 

@@ -8,7 +8,7 @@ from argparse import ArgumentParser
 
 import jieba
 
-from ._compat import *
+from ._compat import text_type
 
 parser = ArgumentParser(
     usage=f'{sys.executable} -m jieba [options] filename',
@@ -80,11 +80,11 @@ if args.user_dict:
 
 ln = fp.readline()
 while ln:
-    l = ln.rstrip('\r\n')
+    # l = ln.rstrip('\r\n')
     result = delim.join(cutfunc(ln.rstrip('\r\n'), cutall, hmm))
     # if PY2:
     #     result = result.encode(default_encoding)
-    print(result)
+    # print(result)
     ln = fp.readline()
 
 fp.close()
