@@ -2,7 +2,7 @@
 name = "jieba-py"
 version = "0.46.10"
 description = "Chinese Words Segmentation Utilities"
-readme = "README.md"
+readme = "ReadMe.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
@@ -32,7 +32,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/bukun/jieba-py"
-Documentation = "https://gitee.com/bukun/jieba-py/blob/master/README.md"
+Documentation = "https://github.com/bukun/jieba-py/blob/master/ReadMe.md"
 
 [tool.setuptools.packages.find]
 where = ["."]
