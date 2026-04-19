@@ -203,6 +203,8 @@ if __name__ == '__main__':
         print(f'Input: {sentence}')
         print(f'Result: {result}')
         print(f'Expect: {expected}')
+
+        test_cut(sentence, expected)
         if result == expected:
             pass
         else:
