@@ -27,7 +27,7 @@ jieba分词其实被很多语言重新进行了实现，
 #### NOTE
 目前 `jieba-py` 模块已经发布到 `pypi` 上，请使用 `pip` 安装。
 使用其他Python包管理安装方法请按各自使用方法进行调整。
-最新版本为： 0.46.11
+最新版本为： 0.46.12
 
 `python3 -m pip install jieba-py`
 
@@ -58,7 +58,7 @@ This version’s continued maintenance in pure Python still has some significanc
 #### NOTE
 目前 `jieba-py` 模块已经发布到 `pypi` 上，请使用 `pip` 安装。
 使用其他Python包管理安装方法请按各自使用方法进行调整。
-最新版本为： 0.46.11
+最新版本为： 0.46.12
 
 `python3 -m pip install jieba-py`
 

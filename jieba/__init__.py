@@ -1,4 +1,4 @@
-__version__ = '0.46.11'
+__version__ = '0.46.12'
 __license__ = 'MIT'
 
 import logging

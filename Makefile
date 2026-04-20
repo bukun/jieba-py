@@ -32,3 +32,9 @@ pot:
 po: pot
 	cd docs && sphinx-intl update -p _build/gettext -l en
 
+test_all:
+	venv310/.venv/bin/pytest
+	venv311/.venv/bin/pytest
+	venv312/.venv/bin/pytest
+	venv314/.venv/bin/pytest
+
