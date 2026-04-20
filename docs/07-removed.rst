@@ -6,6 +6,10 @@
  删除 ``paddle`` 模式的支持
 *********************
 
+``lac_small`` 是 ``jieba`` 的 ``paddle`` 模式的核心组件， 用于提供基于深度学习的分词和词性标注功能。
+
+LAC (Lexical Analysis of Chinese) 是百度开源的中文词法分析工具， 基于深度学习框架 ``PaddlePaddle`` 实现。
+
 ``paddlepaddle-tiny`` 已停更， 仅支持 Python ≤3.6 现代 Python（3.8+）必须装完整 ``paddle``
 ，体积大、安装易报错
 
@@ -13,11 +17,11 @@
 - 速度：远慢于默认模式
 - 社区：极少项目生产环境用 paddle 模式
 
-LAC (Lexical Analysis of Chinese) 是百度开源的中文词法分析工具， 基于深度学习框架 ``PaddlePaddle`` 实现。
+对于在 jieba-py 中使用 ``paddle`` 进行了尝试，暂时放弃。
 
-``lac_small`` 在 ``jieba`` 中的用途
+- 飞桨框架 2.5 版本开始，已经废弃了 ``paddle.fluid`` ，这部分的代码想修改有些困难。
+- 原本在 :file:`jieba/lac_samll/model_baseline` 中的文件是训练模型，需要有新的数据与程序进行训练，也很麻烦。
 
-``lac_small`` 是 ``jieba`` 的 ``paddle`` 模式的核心组件， 用于提供基于深度学习的分词和词性标注功能。
 
 **********
  生成的文件的维护
