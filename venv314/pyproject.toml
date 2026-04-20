@@ -1,0 +1,158 @@
+[project]
+name = "jieba-py"
+version = "0.46.11"
+description = "Chinese Words Segmentation Utilities"
+readme = "ReadMe.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Sun, Junyi", email = "ccnusjy@gmail.com"},
+    {name = "BU Kun", email = "bukun@osgeo.cn"},
+]
+keywords = ["NLP", "tokenizing", "Chinese word segmentation"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Natural Language :: Chinese (Simplified)",
+    "Natural Language :: Chinese (Traditional)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: Indexing",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+]
+
+
+[project.urls]
+Homepage = "https://github.com/bukun/jieba-py"
+Documentation = "https://github.com/bukun/jieba-py/blob/master/ReadMe.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["jieba*"]
+exclude = ["tests*", "test*", "*.md"]
+
+[tool.setuptools.package-data]
+jieba = [
+    "*.*",
+    "finalseg/*",
+    "analyse/*",
+    "posseg/*",
+    "_data/*",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[[tool.pdm.source]]
+name = "ali"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+verify_ssl = true
+
+[[tool.pdm.source]]
+name = "tencent"
+url = "https://mirrors.cloud.tencent.com/pypi/simple/"
+verify_ssl = true
+
+##############################################################################
+##############################################################################
+
+[project.scripts]
+jieba = "jieba_py.bin.jiebacmd:main"
+
+##############################################################################
+##############################################################################
+
+[tool.uv.sources]
+whoosh-reloaded = { git = "https://gitee.com/bukun/whoosh-reloaded.git" }
+
+[dependency-groups]
+dev = [
+    "whoosh-reloaded",
+    "build>=1.4.3",
+    "pytest>=9.0.3",
+    "scikit-learn>=1.7.2",
+    "sphinxcontrib-programoutput>=0.19",
+    "docstrfmt>=2.0.2",
+    "sphinx-intl>=2.3.2",
+    "myst-parser>=4.0.1",
+    "sphinx-markdown-builder>=0.6.10",
+]
+
+
+
+##############################################################################
+##############################################################################
+
+
+[tool.djlint]
+# 官网说明中是用逗号分割，但是无效
+exclude = "templates_tool|dist|.venv|venv|.tox|.eggs|node_modules"
+
+##############################################################################
+##############################################################################
+
+
+[tool.ruff]
+# 严格遵循 Black → 88 字符. 普通人 / 公司项目 → 120 字符（首选）
+line-length = 120
+# 排除不需要检查和格式化的目录
+exclude = [
+    ".venv",
+    "venv",
+    'finalseg',
+    'posseg',
+]
+
+[tool.ruff.format]
+# 使用单引号
+quote-style = "single"
+
+
+[tool.ruff.lint]
+# Disable fix for unused imports (`F401`).
+# unfixable = ["F401"]
+select = [
+    "I", # isort - 导入排序
+    "E", # pycodestyle - 代码风格
+    "F", # pyflakes - 常见错误
+    "UP", # pyupgrade - Python 版本升级建议
+]
+
+##############################################################################
+##############################################################################
+
+[tool.pytest.ini_options]
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+
+##############################################################################
+##############################################################################
+
+[tool.coverage.run]
+# 只统计你的业务源码目录（如 myapp、src）
+source = ["."]
+
+# 排除所有测试文件/目录
+omit = [
+    "**/scripts/*",
+    "**/_run_*.py",
+    "**/_script_*.py",
+    "**/xx_*.py",
+    "**/test/*", # 排除 test 目录下所有文件
+    "**/test*.py", # 排除以 test_ 开头的测试文件
+    "__init__.py", # 可选：排除空的 __init__.py
+]
+
+[tool.coverage.report]
+# 可选：不显示已100%覆盖的文件，让报告更干净
+skip_covered = true
+# 显示未覆盖的行号
+# show_missing = true

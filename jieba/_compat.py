@@ -13,7 +13,8 @@ def setLogLevel(log_level):
 
 def get_module_res(*res):
     """Get resource file from package using importlib.resources (Python 3.9+)"""
-    return files(__name__).joinpath(*res).open('rb')
+    return files('jieba').joinpath(*res).open('rb')
+    # return files(__name__).joinpath(*res).open('rb')
 
 
 default_encoding = sys.getfilesystemencoding()
